@@ -3,7 +3,7 @@
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 	export let frameCount, assetUrl;
-	let canvas;
+	let canvas, innerHeight;
 
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
@@ -47,5 +47,7 @@
 		}
 	});
 </script>
+
+<svelte:window bind:innerHeight />
 
 <canvas class="canvas" bind:this={canvas} />

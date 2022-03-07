@@ -9,9 +9,13 @@
 	let clientWidth;
 	let canvas;
 	let innerHeight;
-
+	$: console.log(innerHeight);
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
+		ScrollTrigger.defaults({
+			invalidateOnRefresh: true,
+			markers: true
+		});
 
 		//main banner
 
@@ -195,7 +199,7 @@
 					const context = canvas.getContext('2d');
 
 					canvas.width = document.body.clientWidth;
-					canvas.height = window.innerHeight;
+					canvas.height = innerHeight;
 
 					//const frameCount = 199;
 					//const currentFrame = (index) =>
@@ -274,46 +278,6 @@
 					function render() {
 						context.clearRect(0, 0, canvas.width, canvas.height);
 						context.drawImage(images[products.frame], 0, 0);
-
-						// if (products.frame) {
-						// 	console.log(products.frame);
-
-						// 	if (texts) {
-						// 		if (products.frame > 1) {
-						// 			tl.to(canvas, { autoAlpha: 1, ease: 'power4.easeOut' }, 0);
-						// 		}
-
-						// 		if (products.frame === frameCount - 1) {
-						// 			tl.to(canvas, { autoAlpha: 0, ease: 'power4.easeOut' }, 0);
-						// 		}
-
-						// 		texts.map((text) => {
-						// 			let textId = document.getElementById(text.id);
-						// 			let isTitle = text.title ? 0 : 300;
-						// 			if (products.frame >= text.start && products.frame <= text.end) {
-						// 				tl.to(
-						// 					textId,
-						// 					{
-						// 						autoAlpha: 1,
-						// 						x: isTitle,
-						// 						ease: 'power4.easeOut'
-						// 					},
-						// 					0
-						// 				);
-						// 			} else {
-						// 				tl.to(
-						// 					textId,
-						// 					{
-						// 						autoAlpha: 0,
-						// 						x: -isTitle,
-						// 						ease: 'power4.easeOut'
-						// 					},
-						// 					0
-						// 				);
-						// 			}
-						// 		});
-						// 	}
-						// }
 					}
 				}
 			});
@@ -337,7 +301,7 @@
 	<div class="sentinel-never-sleeps-text absolute z-10 w-full mt-16 text-center">
 		<p class="text-2xl md: text-4xl">The sentinel never sleeps</p>
 	</div>
-	<CanvasAnimation frameCount="95" assetUrl="/assets/bscene/bscene_" />
+	<CanvasAnimation frameCount="95" assetUrl="/assets/bscene/bscene_" bind:innerHeight />
 </section>
 <div class="h-screen section-zero relative" style="background-color: #F9F8F6">
 	<div class="section-zero__product-image absolute top-0 left-0 w-full h-full">
@@ -365,14 +329,12 @@
 			</div>
 		</div>
 		<div class="product-info">
-			<div class="product-info__description" id="product-info__description1">
-				<h2>
-					ShapeShifter™ allows you to Interchange between goggles and sunglasses. No tradeoff
-					between comfort and functionality.
-				</h2>
+			<div class="product-info__description text-white" id="product-info__description1">
+				<h2 class="text-4xl">Mini but max</h2>
+				<p class="mt-12">Superfast and seriously powerful.</p>
 			</div>
 			<div class="product-info__description" id="product-info__description2">
-				<h2>A customizable fit for all-day comfort.</h2>
+				<h2>Multi core performace powerful and fast</h2>
 			</div>
 			<div class="product-info__description" id="product-info__description3">
 				<h2>Magic like you’ve never heard.</h2>
@@ -381,7 +343,7 @@
 	</div>
 </section>
 
-<div class="h-screen bg-green-100" />
+<div class="h-screen bg-gray-800" />
 
 <style>
 	.section {
