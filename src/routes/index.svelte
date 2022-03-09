@@ -177,6 +177,45 @@
 			}
 		});
 
+		const context = canvas.getContext('2d');
+
+		canvas.width = document.body.clientWidth;
+		canvas.height = innerHeight;
+
+		const currentFrame = (index) =>
+			`/assets/bscene/bscene_${(index + 1).toString().padStart(3, '0')}.jpg`;
+
+		const images = [];
+		const frames = {
+			frame: 0
+		};
+
+		for (let i = 0; i < 92; i++) {
+			const img = new Image();
+			img.src = currentFrame(i);
+			images.push(img);
+		}
+
+		gsap.timeline().to(frames, {
+			frame: 92 - 1,
+			snap: 'frame',
+			ease: 'none',
+			scrollTrigger: {
+				trigger: '.section-one',
+				start: 'top top',
+				pin: true,
+				scrub: 0.5
+			},
+			onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate
+		});
+
+		images[0].onload = render;
+
+		function render() {
+			context.clearRect(0, 0, canvas.width, canvas.height);
+			context.drawImage(images[frames.frame], 0, 0);
+		}
+
 		let scrollImages = (canvasId, texts, imageFolder) => {
 			ScrollTrigger.matchMedia({
 				// desktop text timeline
@@ -296,56 +335,92 @@
 	</div>
 </div>
 
+<div class="h-screen section-zero relative" style="background-color: #F9F8F6">
+	<div class="section-zero__product-image absolute top-0 left-0 w-full h-full">
+		<img
+			src="/assets/hub.jpg"
+			class="h-3/4 md:h-full md:pt-12 absolute bottom-8 right-[-20%] md:-right-8 w-[1000px] md:w-full object-contain max-w-[110%] md:max-w-[800px]"
+			alt=""
+		/>
+	</div>
+	<div class="section-zero__heading">
+		<p class=" text-xl md:text-3xl pt-32">The beating heart in keus homes</p>
+		<p>To deliver a superlative smart home experience.</p>
+	</div>
+	<p class="section-zero__title2 absolute bottom-1/3">
+		Stores and backs up everything that matters
+	</p>
+	<div class="section-zero__title3 absolute bottom-1/4">
+		<p>Auto Updates</p>
+		<p>An always up to date and secure system</p>
+	</div>
+</div>
+
 <section class="scene section section-one h-screen relative">
 	<div class="viewer viewer-one relative overflow-hidden" />
 	<div class="sentinel-never-sleeps-text absolute z-10 w-full mt-16 text-center">
 		<p class="text-2xl md:text-4xl">The sentinel never sleeps</p>
 	</div>
-	<CanvasAnimation frameCount="95" assetUrl="/assets/bscene/bscene_" bind:innerHeight />
+	<!-- <CanvasAnimation
+		frameCount="95"
+		assetUrl="/assets/bscene/bscene_"
+		bind:innerHeight
+		parentElement={'.section-one'}
+	/> -->
+	<canvas class="canvas" bind:this={canvas} />
 </section>
 
-<div class="h-screen section-zero relative" style="background-color: #F9F8F6">
-  <div class="section-zero__product-image absolute top-0 left-0 w-full h-full">
-    <img src="/assets/hub.jpg" class="h-3/4 md:h-full md:pt-12 absolute bottom-8 right-[-20%] md:-right-8 w-[1000px] md:w-full object-contain max-w-[110%] md:max-w-[800px]" alt="" />
-  </div>
-  <div class="section-zero__heading">
-    <p class=" text-xl md:text-3xl pt-32">The beating heart in keus homes</p>
-    <p>To deliver a superlative smart home experience.</p>
-  </div>
-  <p class="section-zero__title2 absolute bottom-1/3">
-    Stores and backs up everything that matters
-  </p>
-  <div class="section-zero__title3 absolute bottom-1/4">
-    <p>Auto Updates</p>
-    <p>An always up to date and secure system</p>
-  </div>
-</div>
-
-<div class="h-screen relative bg-dark flex flex-col text-center md:text-left md:flex-row items-center justify-evenly">
-  <p class="text-white text-4xl leading-snug w-full md:w-6/12 md:max-w-[400px]">
-    Seamless communication <br/> with the Keus app
-  </p>
-  <img src="/assets/hub-keus-app.png" class="w-full object-contain max-w-[254px] md:max-w-[346px]" alt="" />
+<div
+	class="h-screen relative bg-dark flex flex-col text-center md:text-left md:flex-row items-center justify-evenly"
+>
+	<p class="text-white text-4xl leading-snug w-full md:w-6/12 md:max-w-[400px]">
+		Seamless communication <br /> with the Keus app
+	</p>
+	<img
+		src="/assets/hub-keus-app.png"
+		class="w-full object-contain max-w-[254px] md:max-w-[346px]"
+		alt=""
+	/>
 </div>
 
 <div class="h-screen relative md:flex md:items-center" style="background-color: #F9F8F6">
-  <div class="absolute bottom-[10%] md:bottom-auto left-0 md:left-auto right-0 md:right-auto md:relative md:w-1/2">
-    <p class="absolute md:max-w-[410px] md:w-full md:relative text-center md:text-right bottom-[10%] md:bottom-auto text-2xl left-1/2 md:left-auto transform -translate-x-1/2 md:translate-auto w-10/12 md:mr-0 md:ml-auto">Connects Keus smarthome to the internet</p>
-  </div>
+	<div
+		class="absolute bottom-[10%] md:bottom-auto left-0 md:left-auto right-0 md:right-auto md:relative md:w-1/2"
+	>
+		<p
+			class="absolute md:max-w-[410px] md:w-full md:relative text-center md:text-right bottom-[10%] md:bottom-auto text-2xl left-1/2 md:left-auto transform -translate-x-1/2 md:translate-auto w-10/12 md:mr-0 md:ml-auto"
+		>
+			Connects Keus smarthome to the internet
+		</p>
+	</div>
 
-  <div class="absolute md:relative top-0 left-0 w-full md:w-1/2 h-full">
-    <img src="/assets/hub-back.png" class="h-full absolute w-full object-contain max-w-[110%] md:max-w-[850px] md:right-0" alt="" />
-  </div>
+	<div class="absolute md:relative top-0 left-0 w-full md:w-1/2 h-full">
+		<img
+			src="/assets/hub-back.png"
+			class="h-full absolute w-full object-contain max-w-[110%] md:max-w-[850px] md:right-0"
+			alt=""
+		/>
+	</div>
 </div>
 
 <div class="h-screen bg-dark relative w-full">
-  <div class="h-full w-full relative text-white">
-    <p class="text-4xl absolute w-full text-center md:text-left left-1/2 md:left-[20%] transform -translate-x-1/2 top-[25%] max-w-[256px] mx-auto">Secure like Fort knox</p>
-    <p class="text-2xl absolute w-full text-center md:text-right left-1/2 md:left-[20%] md:top-1/2 md:bottom-auto transform -translate-x-1/2 md:-translate-y-1/2 bottom-[30%] max-w-[319px] mx-auto">Proprietary scurity layers to further enchance layers of military grade encryption</p>
-  </div>
-  <div class="absolute left-1/2 md:left-auto top-1/2 transform -translate-x-1/2 md:-translate-x-[0] md:right-[5%] -translate-y-1/2 w-full md:max-w-[60%]">
-    <img src="/assets/hub-chip.png" class="w-full" alt="" />
-  </div>
+	<div class="h-full w-full relative text-white">
+		<p
+			class="text-4xl absolute w-full text-center md:text-left left-1/2 md:left-[20%] transform -translate-x-1/2 top-[25%] max-w-[256px] mx-auto"
+		>
+			Secure like Fort knox
+		</p>
+		<p
+			class="text-2xl absolute w-full text-center md:text-right left-1/2 md:left-[20%] md:top-1/2 md:bottom-auto transform -translate-x-1/2 md:-translate-y-1/2 bottom-[30%] max-w-[319px] mx-auto"
+		>
+			Proprietary scurity layers to further enchance layers of military grade encryption
+		</p>
+	</div>
+	<div
+		class="absolute left-1/2 md:left-auto top-1/2 transform -translate-x-1/2 md:-translate-x-[0] md:right-[5%] -translate-y-1/2 w-full md:max-w-[60%]"
+	>
+		<img src="/assets/hub-chip.png" class="w-full" alt="" />
+	</div>
 </div>
 
 <section class="h-screen relative section-two product-ezgif">
@@ -372,15 +447,20 @@
 </section>
 
 <div class="h-screen w-full relative bg-[#D0CDC8]">
-  <div class="h-full w-full absolute top-0 bottom-0 right-0 left-0">
-    <p class="text-2xl absolute w-full text-center md:text-right left-1/2 md:left-[20%] md:top-1/2 md:bottom-auto transform -translate-x-1/2 md:-translate-y-1/2 bottom-[15%] max-w-[319px] mx-auto">Wall or tabletop You decide</p>
-  </div>
-  <img src="/assets/hub-wall-and-desk-mount.jpg" class="h-full w-full md:w-[63%] object-cover md:object-contain md:mr-0 md:ml-auto" alt="">
+	<div class="h-full w-full absolute top-0 bottom-0 right-0 left-0">
+		<p
+			class="text-2xl absolute w-full text-center md:text-right left-1/2 md:left-[20%] md:top-1/2 md:bottom-auto transform -translate-x-1/2 md:-translate-y-1/2 bottom-[15%] max-w-[319px] mx-auto"
+		>
+			Wall or tabletop You decide
+		</p>
+	</div>
+	<img
+		src="/assets/hub-wall-and-desk-mount.jpg"
+		class="h-full w-full md:w-[63%] object-cover md:object-contain md:mr-0 md:ml-auto"
+		alt=""
+	/>
 </div>
 
-<div class="h-screen w-full relative">
-
-</div>
 <style>
 	.section {
 		height: 100%;
