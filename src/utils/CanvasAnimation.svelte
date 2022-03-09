@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
-	export let frameCount, assetUrl;
+	export let frameCount, assetUrl, parentElement;
 	let canvas, innerHeight;
 
 	onMount(() => {
@@ -31,7 +31,7 @@
 			snap: 'frame',
 			ease: 'none',
 			scrollTrigger: {
-				trigger: canvas,
+				trigger: parentElement,
 				start: 'top top',
 				pin: true,
 				scrub: 0.5
@@ -45,6 +45,7 @@
 			context.clearRect(0, 0, canvas.width, canvas.height);
 			context.drawImage(images[frames.frame], 0, 0);
 		}
+		ScrollTrigger.refresh();
 	});
 </script>
 
