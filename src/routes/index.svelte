@@ -289,8 +289,8 @@
 
 <svelte:window bind:innerHeight />
 <div class="h-screen overflow-hidden flex items-center justify-center hub-intro">
-	<img src="/assets/hub-intro.jpg" class="absolute top-0 left-0 -z-10 min-h-full min-w-full" />
-	<div class="hub-text">
+	<img src="/assets/hub-intro.jpg" class="w-full h-full object-cover" alt="" />
+	<div class="hub-text absolute">
 		<p class=" text-2xl md:text-4xl text-center">Meet the sentinel</p>
 		<p class=" text-center">A truly advanced gatekeeper for the smartest homes.</p>
 	</div>
@@ -299,26 +299,46 @@
 <section class="scene section section-one h-screen relative">
 	<div class="viewer viewer-one relative overflow-hidden" />
 	<div class="sentinel-never-sleeps-text absolute z-10 w-full mt-16 text-center">
-		<p class="text-2xl md: text-4xl">The sentinel never sleeps</p>
+		<p class="text-2xl md:text-4xl">The sentinel never sleeps</p>
 	</div>
 	<CanvasAnimation frameCount="95" assetUrl="/assets/bscene/bscene_" bind:innerHeight />
 </section>
+
 <div class="h-screen section-zero relative" style="background-color: #F9F8F6">
-	<div class="section-zero__product-image absolute top-0 left-0 w-full h-full">
-		<img src="/assets/hub.jpg" class="h-3/4 md:h-full md:pt-12 absolute md:bottom-8 md:-right-8" />
-	</div>
-	<div class="section-zero__heading">
-		<p class=" text-xl md:text-3xl pt-32">The beating heart in keus homes</p>
-		<p>To deliver a superlative smart home experience.</p>
-	</div>
-	<p class="section-zero__title2 absolute bottom-1/3">
-		Stores and backs up everything that matters
-	</p>
-	<div class="section-zero__title3 absolute bottom-1/4">
-		<p>Auto Updates</p>
-		<p>An always up to date and secure system</p>
-	</div>
+  <div class="section-zero__product-image absolute top-0 left-0 w-full h-full">
+    <img src="/assets/hub.jpg" class="h-3/4 md:h-full md:pt-12 absolute bottom-8 right-[-20%] md:-right-8 w-[1000px] md:w-full object-contain max-w-[110%] md:max-w-[800px]" alt="" />
+  </div>
+  <div class="section-zero__heading">
+    <p class=" text-xl md:text-3xl pt-32">The beating heart in keus homes</p>
+    <p>To deliver a superlative smart home experience.</p>
+  </div>
+  <p class="section-zero__title2 absolute bottom-1/3">
+    Stores and backs up everything that matters
+  </p>
+  <div class="section-zero__title3 absolute bottom-1/4">
+    <p>Auto Updates</p>
+    <p>An always up to date and secure system</p>
+  </div>
 </div>
+
+<div class="h-screen relative bg-dark flex flex-col text-center md:text-left md:flex-row items-center justify-evenly">
+  <p class="text-white text-4xl leading-snug w-full md:w-6/12 md:max-w-[400px]">
+    Seamless communication <br/> with the Keus app
+  </p>
+  <img src="/assets/hub-keus-app.png" class="w-full object-contain max-w-[254px] md:max-w-[346px]" alt="" />
+</div>
+
+<div class="h-screen relative md:flex md:items-center" style="background-color: #F9F8F6">
+  <div class="absolute bottom-[10%] md:bottom-auto left-0 md:left-auto right-0 md:right-auto md:relative md:w-1/2">
+    <p class="absolute md:max-w-[410px] md:w-full md:relative text-center md:text-right bottom-[10%] md:bottom-auto text-2xl left-1/2 md:left-auto transform -translate-x-1/2 md:translate-auto w-10/12 md:mr-0 md:ml-auto">Connects Keus smarthome to the internet</p>
+  </div>
+
+  <div class="absolute md:relative top-0 left-0 w-full md:w-1/2 h-full">
+    <img src="/assets/hub-back.png" class="h-full absolute w-full object-contain max-w-[110%] md:max-w-[850px] md:right-0" alt="" />
+  </div>
+
+</div>
+
 
 <section class="h-screen relative section-two product-ezgif">
 	<canvas id="product-ezgif" />

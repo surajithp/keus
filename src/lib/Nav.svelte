@@ -1,4 +1,4 @@
-<div class="bg-white md:bg-transparent md:max-w-7xl md:mx-auto md:relative flex items-center align-center justify-between px-6 py-4 md:pt-20">
+<div class="bg-white absolute left-[50%] transform -translate-x-1/2 w-full md:bg-transparent md:max-w-7xl md:mx-auto flex items-center align-center justify-between px-6 py-4 md:pt-20">
   <a href="javascript:void(0)" class="inline-block md:absolute md:right-[62px]">
     <img src="/assets/hamburger-menu.svg" alt="">
   </a>
