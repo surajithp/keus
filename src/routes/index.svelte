@@ -336,9 +336,17 @@
   <div class="absolute md:relative top-0 left-0 w-full md:w-1/2 h-full">
     <img src="/assets/hub-back.png" class="h-full absolute w-full object-contain max-w-[110%] md:max-w-[850px] md:right-0" alt="" />
   </div>
-
 </div>
 
+<div class="h-screen bg-dark relative w-full">
+  <div class="h-full w-full relative text-white">
+    <p class="text-4xl absolute w-full text-center md:text-left left-1/2 md:left-[20%] transform -translate-x-1/2 top-[25%] max-w-[256px] mx-auto">Secure like Fort knox</p>
+    <p class="text-2xl absolute w-full text-center md:text-right left-1/2 md:left-[20%] md:top-1/2 md:bottom-auto transform -translate-x-1/2 md:-translate-y-1/2 bottom-[30%] max-w-[319px] mx-auto">Proprietary scurity layers to further enchance layers of military grade encryption</p>
+  </div>
+  <div class="absolute left-1/2 md:left-auto top-1/2 transform -translate-x-1/2 md:-translate-x-[0] md:right-[5%] -translate-y-1/2 w-full md:max-w-[60%]">
+    <img src="/assets/hub-chip.png" class="w-full" alt="" />
+  </div>
+</div>
 
 <section class="h-screen relative section-two product-ezgif">
 	<canvas id="product-ezgif" />
@@ -363,8 +371,16 @@
 	</div>
 </section>
 
-<div class="h-screen bg-gray-800" />
+<div class="h-screen w-full relative bg-[#D0CDC8]">
+  <div class="h-full w-full absolute top-0 bottom-0 right-0 left-0">
+    <p class="text-2xl absolute w-full text-center md:text-right left-1/2 md:left-[20%] md:top-1/2 md:bottom-auto transform -translate-x-1/2 md:-translate-y-1/2 bottom-[15%] max-w-[319px] mx-auto">Wall or tabletop You decide</p>
+  </div>
+  <img src="/assets/hub-wall-and-desk-mount.jpg" class="h-full w-full md:w-[63%] object-cover md:object-contain md:mr-0 md:ml-auto" alt="">
+</div>
 
+<div class="h-screen w-full relative">
+
+</div>
 <style>
 	.section {
 		height: 100%;
