@@ -6,6 +6,7 @@
 	import { sectionOneAnimation } from '../utils/hub/SectionOne.svelte';
 	import { sectionThreeAnimation } from '../utils/hub/SectionThree.svelte';
 	import { sectionFourAnimation } from '../utils/hub/SectionFour.svelte';
+  import { sectionEightAnimation } from '../utils/hub/SectionEight.svelte';
 
 	import '../app.css';
 
@@ -137,6 +138,7 @@
 
 		sectionThreeAnimation();
 		sectionFourAnimation();
+    sectionEightAnimation();
 
 		let sixTimeline = gsap.timeline({
 			scrollTrigger: {
@@ -371,7 +373,7 @@
 	</div>
 </div>
 
-<section class="h-screen relative section-six product-ezgif overflow-hidden">
+<!-- <section class="h-screen relative section-six product-ezgif overflow-hidden">
 	<canvas id="product-ezgif" />
 	<div class="product-content">
 		<div class="product-title-wrapper">
@@ -392,19 +394,17 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 
-<div class="h-screen w-full relative bg-[#D0CDC8]">
-	<div class="h-full w-full absolute top-0 bottom-0 right-0 left-0">
-		<p
-			class="text-2xl absolute w-full text-center md:text-right left-1/2 md:left-[20%] md:top-1/2 md:bottom-auto transform -translate-x-1/2 md:-translate-y-1/2 bottom-[15%] max-w-[319px] mx-auto"
-		>
-			Wall or tabletop You decide
-		</p>
-	</div>
+<div class="section-eight h-screen w-full relative bg-[#D0CDC8] overflow-hidden">
+  <p
+    class="section-eight__heading text-26 leading-8 title-font absolute w-full text-center md:text-right left-1/2 md:left-[20%] md:top-1/2 md:bottom-auto transform -translate-x-1/2 md:-translate-y-1/2 max-w-[230px] ml-0 md:mx-auto top-[15vh]"
+  >
+    Wall or tabletop You decide
+  </p>
 	<img
 		src="/assets/hub-wall-and-desk-mount.jpg"
-		class="h-full w-full md:w-8/12 object-cover md:mr-0 md:ml-auto"
+		class="h-full w-full md:w-8/12 object-cover md:mr-0 md:ml-auto section-eight__product-image"
 		alt=""
 	/>
 </div>
