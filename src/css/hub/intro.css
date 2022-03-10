@@ -1,8 +1,8 @@
 .hub-intro-image {
-  animation: intro-slide 2s ease-in-out forwards;
+	animation: intro-slide 2s ease-in-out forwards;
 }
 
-.section {
+/* .section {
   height: 100%;
   background: black;
   color: white;
@@ -94,17 +94,17 @@
   line-height: 35px;
   padding-left: 15px;
   border-left: 3px solid #d2ff02;
-}
+} */
 
 @keyframes intro-slide {
-  0% {
-    max-width: 110%;
-  }
-  30% {
-    max-width: 110%;
-  }
-  100% {
-    max-width: 110%;
-    margin-left: -8%;
-  }
+	0% {
+		max-width: 110%;
+	}
+	30% {
+		max-width: 110%;
+	}
+	100% {
+		max-width: 110%;
+		margin-left: -8%;
+	}
 }

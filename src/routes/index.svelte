@@ -6,8 +6,9 @@
 	import { sectionOneAnimation } from '../utils/hub/SectionOne.svelte';
 	import { sectionThreeAnimation } from '../utils/hub/SectionThree.svelte';
 	import { sectionFourAnimation } from '../utils/hub/SectionFour.svelte';
-  import { sectionSevenAnimation } from '../utils/hub/SectionSeven.svelte';
-  import { sectionEightAnimation } from '../utils/hub/SectionEight.svelte';
+	import { sectionFiveAnimation } from '../utils/hub/SectionFive.svelte';
+	import { sectionSevenAnimation } from '../utils/hub/SectionSeven.svelte';
+	import { sectionEightAnimation } from '../utils/hub/SectionEight.svelte';
 
 	import '../app.css';
 
@@ -139,8 +140,7 @@
 
 		sectionThreeAnimation();
 		sectionFourAnimation();
-    sectionSevenAnimation();
-    sectionEightAnimation();
+		sectionFiveAnimation();
 
 		let sixTimeline = gsap.timeline({
 			scrollTrigger: {
@@ -156,19 +156,10 @@
 		let scrollImages = (canvasId, texts, imageFolder) => {
 			ScrollTrigger.matchMedia({
 				// desktop text timeline
-				'(min-width: 800px)': function () {
+				'(min-width: 768px)': function () {
 					// setup animations and ScrollTriggers for screens 800px wide or greater (desktop) here...
 					// These ScrollTriggers will be reverted/killed when the media query doesn't match anymore.
 					// Timeline for fading in and fading out the text
-				},
-				// mobile text timeline
-				'(max-width: 799px)': function () {
-					// The ScrollTriggers created inside these functions are segregated and get
-					// reverted/killed when the media query doesn't match anymore.
-				},
-				all: function () {
-					console.clear();
-
 					// this is the bit that does the image scrolling
 					const canvasIdWithoutHash = canvasId.substring(1);
 					const canvas = document.getElementById(canvasIdWithoutHash);
@@ -176,9 +167,11 @@
 
 					canvas.width = document.body.clientWidth;
 					canvas.height = innerHeight;
+					let currentFrame;
 
 					const frameCount = 122;
-					const currentFrame = (index) =>
+
+					currentFrame = (index) =>
 						`/assets/hub/hub_${(index + 1).toString().padStart(3, '0')}.jpg`;
 
 					const images = [];
@@ -252,10 +245,116 @@
 						context.clearRect(0, 0, canvas.width, canvas.height);
 						context.drawImage(images[products.frame], 0, 0);
 					}
+				},
+				// mobile text timeline
+				'(max-width: 767px)': function () {
+					// The ScrollTriggers created inside these functions are segregated and get
+					// reverted/killed when the media query doesn't match anymore.
+					// this is the bit that does the image scrolling
+					const canvasIdWithoutHash = canvasId.substring(1);
+					const canvas = document.getElementById(canvasIdWithoutHash);
+					const context = canvas.getContext('2d');
+
+					canvas.width = document.body.clientWidth;
+					canvas.height = innerHeight;
+					let currentFrame;
+
+					const frameCount = 122;
+					currentFrame = (index) =>
+						`/assets/hub_mobile/hub_${(index + 1).toString().padStart(3, '0')}.jpg`;
+
+					const images = [];
+					const products = {
+						frame: 0
+					};
+
+					for (let i = 0; i < frameCount; i++) {
+						const img = new Image();
+						img.src = currentFrame(i);
+						images.push(img);
+					}
+
+					sixTimeline
+						.fromTo(
+							'#product-info__description1',
+							{
+								autoAlpha: 0,
+								ease: 'power4.easeOut',
+								y: 0
+							},
+							{
+								autoAlpha: 1,
+								ease: 'power4.easeOut',
+								y: -25
+							}
+						)
+						.to(
+							'#product-info__description1',
+							{
+								autoAlpha: 0,
+								duration: 1,
+								ease: 'power4.easeOut'
+							},
+							'+=2'
+						)
+						.to(products, {
+							frame: 67,
+							snap: 'frame',
+							duration: 4,
+							onUpdate: render
+						})
+						.fromTo(
+							'#product-info__description2',
+							{
+								autoAlpha: 0,
+								ease: 'power4.easeOut'
+							},
+							{
+								autoAlpha: 1,
+								ease: 'power4.easeOut'
+							}
+						)
+						.to(
+							'#product-info__description2',
+							{
+								autoAlpha: 0,
+								duration: 1,
+								ease: 'power4.easeOut'
+							},
+							'+=2'
+						)
+						.to(products, {
+							frame: frameCount - 1,
+							snap: 'frame',
+							duration: 2,
+							onUpdate: render
+						});
+
+					images[0].onload = render;
+
+					function render() {
+						var imgHeight =
+							(canvas.width * images[products.frame].height) / images[products.frame].width;
+						context.clearRect(0, 0, canvas.width, canvas.height);
+						context.drawImage(
+							images[products.frame],
+							0,
+							(canvas.height - imgHeight) / 2,
+							canvas.width,
+							imgHeight
+						);
+					}
+				},
+				all: function () {
+					console.clear();
 				}
 			});
 		};
 		scrollImages('#product-ezgif');
+
+		sectionSevenAnimation();
+		sectionEightAnimation();
+
 		ScrollTrigger.refresh();
 	});
 </script>
@@ -340,71 +439,85 @@
 <div
 	class="section-four h-screen relative md:flex text-center md:text-left  md:items-center md:justify-evenly flex flex-col md:flex-row items-center justify-center bg-pale-white"
 >
-	<p
-		class="section-four__heading title-font text-26 md:text-36 leading-tight w-full md:w-6/12 md:max-w-[400px]"
-	>
-		Seamless communication <br /> with the Keus app
-	</p>
-
 	<div class="section-four__product-image mt-[8vh] md:mt-0 overflow-hidden">
 		<img
 			src="/assets/hub-back.png"
-			class=" w-full object-contain max-w-[254px] md:max-w-[346px] mx-auto"
+			class=" w-full object-contain md:max-w-lg xl:max-w-2xl mx-auto"
 			alt=""
 		/>
 	</div>
+	<p class="section-four__heading title-font text-26 leading-tight  md:text-right w-128">
+		Connects Keus smarthome to <br /> the internet
+	</p>
 </div>
 
-<div class="h-screen bg-dark relative w-full">
-	<div class="h-full w-full relative text-white">
-		<p
-			class="text-4xl absolute w-full text-center md:text-left left-1/2 md:left-[20%] transform -translate-x-1/2 top-[25%] max-w-[256px] mx-auto"
-		>
-			Secure like Fort knox
+<div class="h-screen section-five relative bg-dark text-white">
+	<div
+		class="section-five__heading text-center md:text-left md:relative md:left-[10vw] max-w-[296px] mx-auto md:ml-0 mr-auto md:max-w-[427px]"
+	>
+		<p class="title-font text-36 md:text-42 md:leading-snug leading-tight pt-32 mx-auto">
+			Secure like <br /> Fort Knox
 		</p>
-		<p
-			class="text-2xl absolute w-full text-center md:text-right left-1/2 md:left-[20%] md:top-1/2 md:bottom-auto transform -translate-x-1/2 md:-translate-y-1/2 bottom-[30%] max-w-[319px] mx-auto"
-		>
-			Proprietary scurity layers to further enchance layers of military grade encryption
-		</p>
+	</div>
+	<div class="section-five__product-image  w-full overflow-hidden pt-12">
+		<img src="/assets/hub-chip.png" class=" " alt="" />
+	</div>
+	<p class="section-five__title2 title-font text-26 leading-9 px-12 text-center md:text-right">
+		Proprietary security layers to further enchance layers of military grade encryption
+	</p>
+</div>
+
+<section class="h-screen relative section-six product-ezgif overflow-hidden bg-dark text-white">
+	<canvas id="product-ezgif" />
+	<div
+		class="product-info__description  text-center w-full absolute top-[10vh]"
+		id="product-info__description1"
+	>
+		<h2 class="text-4xl title-font">Mini but max</h2>
+		<p class="mt-4">Superfast and seriously powerful.</p>
 	</div>
 	<div
-		class="absolute left-1/2 md:left-auto top-1/2 transform -translate-x-1/2 md:-translate-x-[0] md:right-[5%] -translate-y-1/2 w-full md:max-w-[60%]"
+		class="product-info__description absolute inset-y-3/4 w-full text-center text-26 title-font mt-8"
+		id="product-info__description2"
 	>
-		<img src="/assets/hub-chip.png" class="w-full" alt="" />
+		<h2>Multi core performace <br />powerful and fast</h2>
 	</div>
-</div>
+	<div
+		class="product-info__description  text-center w-full absolute bottom-[10vh]"
+		id="product-info__description3"
+	>
+		<h2 class="text-4xl title-font">100+ devices per hub - easy!</h2>
+		<p class="mt-4">Large Homes or Larger; We’ve got yourcovered</p>
+	</div>
+</section>
 
-<!-- <section class="h-screen relative section-six product-ezgif overflow-hidden">
-	<canvas id="product-ezgif" />
-	<div class="product-content">
-		<div class="product-title-wrapper">
-			<div class="product-title" id="product-title1">
-				<h1>Hub</h1>
-			</div>
-		</div>
-		<div class="product-info">
-			<div class="product-info__description text-white" id="product-info__description1">
-				<h2 class="text-4xl">Mini but max</h2>
-				<p class="mt-12">Superfast and seriously powerful.</p>
-			</div>
-			<div class="product-info__description" id="product-info__description2">
-				<h2>Multi core performace powerful and fast</h2>
-			</div>
-			<div class="product-info__description" id="product-info__description3">
-				<h2>Magic like you’ve never heard.</h2>
-			</div>
-		</div>
-	</div>
-</section> -->
 <div class="section-seven h-screen w-full relative overflow-hidden md:flex md:items-center">
-  <p class="section-seven__heading text-back text-center md:text-left md:absolute relative top-[10vh] md:left-[10vw] max-w-[296px] md:ml-0 mr-auto md:max-w-[427px] title-font text-36 md:text-42 md:leading-snug leading-tight mx-auto">Small and beautiful</p>
-  <p class="section-seven__title2 title-font text-26 leading-9 max-w-[250px] mx-auto md:max-w-none text-center md:text-right absolute bottom-[10%] md:bottom-[42%] w-full md:w-2/6 left-0 md:left-auto right-0 md:right-[75vw] lg:right-[65vw]">Mili-second executions from anywhere in the world</p>
-  <img src="/assets/hub-top.png" class="h-full w-full max-w-[800px] max-h-[785px] object-contain md:mr-0 md:ml-auto section-seven__product-image" alt=""/>
+	<p
+		class="section-seven__heading text-back text-center md:text-left md:absolute relative top-[10vh] md:left-[10vw] max-w-[296px] md:ml-0 mr-auto md:max-w-[427px] title-font text-36 md:text-42 md:leading-snug leading-tight mx-auto"
+	>
+		Small and beautiful
+	</p>
+	<p
+		class="section-seven__title2 title-font text-26 leading-9 max-w-[250px] mx-auto md:max-w-none text-center md:text-right absolute bottom-[10%] md:bottom-[42%] w-full md:w-2/6 left-0 md:left-auto right-0 md:right-[75vw] lg:right-[65vw]"
+	>
+		Mili-second executions from anywhere in the world
+	</p>
+	<img
+		src="/assets/hub-top.png"
+		class="h-full w-full max-w-[800px] max-h-[785px] object-contain md:mr-0 md:ml-auto section-seven__product-image"
+		alt=""
+	/>
 </div>
-
 
 <div class="section-eight h-screen w-full relative bg-[#D0CDC8] overflow-hidden">
-  <p class="section-eight__heading text-26 leading-8 title-font absolute w-full text-center md:text-right left-1/2 md:left-[20%] md:top-1/2 md:bottom-auto transform -translate-x-1/2 md:-translate-y-1/2 max-w-[230px] ml-0 md:mx-auto top-[15vh]">Wall or tabletop You decide</p>
-	<img src="/assets/hub-wall-and-desk-mount.jpg" class="h-full w-full md:w-8/12 object-cover md:mr-0 md:ml-auto section-eight__product-image" alt=""/>
+	<p
+		class="section-eight__heading text-26 leading-8 title-font absolute w-full text-center md:text-right left-1/2 md:left-[20%] md:top-1/2 md:bottom-auto transform -translate-x-1/2 md:-translate-y-1/2 max-w-[230px] ml-0 md:mx-auto top-[15vh]"
+	>
+		Wall or tabletop You decide
+	</p>
+	<img
+		src="/assets/hub-wall-and-desk-mount.jpg"
+		class="h-full w-full md:w-8/12 object-cover md:mr-0 md:ml-auto section-eight__product-image"
+		alt=""
+	/>
 </div>

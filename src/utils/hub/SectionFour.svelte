@@ -41,20 +41,6 @@
 			'(max-width: 767px)': function () {
 				sectionFour
 					.fromTo(
-						'.section-four__heading',
-						{
-							autoAlpha: 1,
-							ease: 'power4.easeOut',
-							yPercent: 25
-						},
-						{
-							autoAlpha: 0,
-							ease: 'power4.easeOut',
-							yPercent: 20
-						},
-						1
-					)
-					.fromTo(
 						'.section-four__product-image',
 						{
 							autoAlpha: 1,
@@ -68,6 +54,21 @@
 						},
 						1
 					)
+					.fromTo(
+						'.section-four__heading',
+						{
+							autoAlpha: 0,
+							ease: 'power4.easeOut',
+							yPercent: 25
+						},
+						{
+							autoAlpha: 1,
+							ease: 'power4.easeOut',
+							yPercent: 0
+						},
+						'+=1'
+					)
+
 					.to('.section-four__heading', {}, '+=1');
 			},
 			all: function () {}
