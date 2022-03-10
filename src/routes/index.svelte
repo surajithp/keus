@@ -3,6 +3,7 @@
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 	import CanvasAnimation from '../utils/CanvasAnimation.svelte';
+	import { sectionOneAnimation } from '../utils/hub/SectionOne.svelte';
 
 	import '../app.css';
 
@@ -31,161 +32,7 @@
 			opacity: 0
 		});
 
-		// Section Zero
-		let sectionZero = gsap.timeline({
-			scrollTrigger: {
-				trigger: '.section-zero',
-				start: 'top top',
-				pin: true,
-				scrub: 1
-			}
-		});
-
-		ScrollTrigger.matchMedia({
-			// desktop text timeline
-			'(min-width: 768px)': function () {
-				sectionZero
-					.fromTo(
-						'.section-zero__heading',
-						{
-							autoAlpha: 1,
-							ease: 'power4.easeOut',
-							yPercent: 25
-						},
-						{
-							autoAlpha: 0,
-							ease: 'power4.easeOut',
-							yPercent: 20
-						},
-						1
-					)
-					.fromTo(
-						'.section-zero__title2',
-						{
-							autoAlpha: 0,
-							ease: 'power4.easeOut',
-							xPercent: -25
-						},
-						{
-							autoAlpha: 1,
-							ease: 'power4.easeOut',
-							xPercent: 210,
-							duration: 1
-						},
-						3
-					)
-					.to(
-						'.section-zero__title2',
-						{
-							autoAlpha: 0,
-							ease: 'power4.easeOut',
-							xPercent: -25,
-							duration: 1
-						},
-						'+=1'
-					)
-					.fromTo(
-						'.section-zero__title3',
-						{
-							autoAlpha: 0,
-							ease: 'power4.easeOut',
-							xPercent: -25
-						},
-						{
-							autoAlpha: 1,
-							ease: 'power4.easeOut',
-							xPercent: 40,
-							duration: 1
-						}
-					)
-					.to(
-						'.section-zero__title3',
-						{
-							autoAlpha: 0,
-							ease: 'power4.easeOut',
-							xPercent: -25,
-							duration: 1
-						},
-						'+=1'
-					);
-			},
-			// mobile text timeline
-			'(max-width: 767px)': function () {
-				sectionZero
-
-					.fromTo(
-						'.section-zero__heading',
-						{
-							autoAlpha: 1,
-							ease: 'power4.easeOut',
-							yPercent: 25,
-						},
-						{
-							autoAlpha: 0,
-							ease: 'power4.easeOut',
-							yPercent: 20,
-						},
-						1
-					)
-					.to(
-						'.section-zero__product-image',
-						{
-							ease: 'power4.easeOut',
-							duration: 1
-						},
-						1
-					)
-					.fromTo(
-						'.section-zero__title2',
-						{
-							autoAlpha: 0,
-							ease: 'power4.easeOut',
-							yPercent: 25
-						},
-						{
-							autoAlpha: 1,
-							ease: 'power4.easeOut',
-							yPercent: 0,
-							duration: 1
-						}
-					)
-					.to(
-						'.section-zero__title2',
-						{
-							autoAlpha: 0,
-							ease: 'power4.easeOut',
-							yPercent: -40,
-							duration: 1
-						},
-						'+=1'
-					)
-					.fromTo(
-						'.section-zero__title3',
-						{
-							autoAlpha: 0,
-							ease: 'power4.easeOut',
-							xPercent: -25
-						},
-						{
-							autoAlpha: 1,
-							ease: 'power4.easeOut',
-							xPercent: 40,
-							duration: 1
-						}
-					)
-					.to(
-						'.section-zero__title3',
-						{
-							autoAlpha: 0,
-							ease: 'power4.easeOut',
-							xPercent: -25,
-							duration: 1
-						},
-						'+=1'
-					);
-			},
-			all: function () {}
-		});
+		sectionOneAnimation();
 
 		// Text enter and leave screen
 		gsap.set('.sentinel-never-sleeps-text, .text-1', {
@@ -412,11 +259,17 @@
 			alt=""
 		/>
 	</div>
-	<div class="section-zero__heading text-back text-center md:text-left md:relative md:left-[10vw] max-w-[296px] mx-auto md:ml-0 mr-auto md:max-w-[427px]">
-		<p class="title-font text-36 md:text-42 md:leading-snug leading-tight pt-32 mx-auto">A beating heart in Keus homes</p>
+	<div
+		class="section-zero__heading text-back text-center md:text-left md:relative md:left-[10vw] max-w-[296px] mx-auto md:ml-0 mr-auto md:max-w-[427px]"
+	>
+		<p class="title-font text-36 md:text-42 md:leading-snug leading-tight pt-32 mx-auto">
+			A beating heart in Keus homes
+		</p>
 		<p class="text-24 leading-8 mt-6 mx-auto">To deliver a superlative smart home experience.</p>
 	</div>
-	<p class="section-zero__title2 title-font max-w-[200px] text-26 leading-9 text-center md:text-right absolute bottom-1/3">
+	<p
+		class="section-zero__title2 title-font max-w-[200px] text-26 leading-9 text-center md:text-right absolute bottom-1/3"
+	>
 		Stores and backs up everything that matters
 	</p>
 	<div class="section-zero__title3 absolute bottom-1/4">
