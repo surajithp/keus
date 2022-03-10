@@ -20,6 +20,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        'pale-white': '#f9f8f6',
         'dark': '#202020',
         'back': '#444343',
         'keus-green': '#8FBEC5',

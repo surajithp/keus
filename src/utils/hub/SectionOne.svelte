@@ -5,10 +5,10 @@
 	gsap.registerPlugin(ScrollTrigger);
 
 	export const sectionOneAnimation = () => {
-		// Section Zero
-		let sectionZero = gsap.timeline({
+		// Section one
+		let sectionOne = gsap.timeline({
 			scrollTrigger: {
-				trigger: '.section-zero',
+				trigger: '.section-one',
 				start: 'top top',
 				pin: true,
 				scrub: 1
@@ -18,9 +18,9 @@
 		ScrollTrigger.matchMedia({
 			// desktop text timeline
 			'(min-width: 768px)': function () {
-				sectionZero
+				sectionOne
 					.fromTo(
-						'.section-zero__heading',
+						'.section-one__heading',
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
@@ -34,7 +34,7 @@
 						1
 					)
 					.fromTo(
-						'.section-zero__title2',
+						'.section-one__title2',
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
@@ -49,7 +49,7 @@
 						3
 					)
 					.to(
-						'.section-zero__title2',
+						'.section-one__title2',
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
@@ -59,7 +59,7 @@
 						'+=1'
 					)
 					.fromTo(
-						'.section-zero__title3',
+						'.section-one__title3',
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
@@ -73,7 +73,7 @@
 						}
 					)
 					.to(
-						'.section-zero__title3',
+						'.section-one__title3',
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
@@ -85,10 +85,10 @@
 			},
 			// mobile text timeline
 			'(max-width: 767px)': function () {
-				sectionZero
+				sectionOne
 
 					.fromTo(
-						'.section-zero__heading',
+						'.section-one__heading',
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
@@ -102,7 +102,7 @@
 						1
 					)
 					.to(
-						'.section-zero__product-image',
+						'.section-one__product-image',
 						{
 							ease: 'power4.easeOut',
 							yPercent: -25,
@@ -111,7 +111,7 @@
 						1
 					)
 					.fromTo(
-						'.section-zero__title2',
+						'.section-one__title2',
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
@@ -125,7 +125,7 @@
 						}
 					)
 					.to(
-						'.section-zero__title2',
+						'.section-one__title2',
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
@@ -135,7 +135,7 @@
 						'+=1'
 					)
 					.fromTo(
-						'.section-zero__title3',
+						'.section-one__title3',
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut'
