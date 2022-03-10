@@ -5,6 +5,7 @@
 	import CanvasAnimation from '../utils/CanvasAnimation.svelte';
 	import { sectionOneAnimation } from '../utils/hub/SectionOne.svelte';
 	import { sectionThreeAnimation } from '../utils/hub/SectionThree.svelte';
+	import { sectionFourAnimation } from '../utils/hub/SectionFour.svelte';
 
 	import '../app.css';
 
@@ -43,7 +44,7 @@
 		});
 
 		ScrollTrigger.create({
-			trigger: '.section-one',
+			trigger: '.section-two',
 			start: 'top 60%',
 			end: 'top -10%',
 
@@ -114,7 +115,7 @@
 				snap: 'frame',
 				ease: 'none',
 				scrollTrigger: {
-					trigger: '.section-one',
+					trigger: '.section-two',
 					start: 'top top',
 					pin: true,
 					scrub: 0.5
@@ -135,6 +136,18 @@
 		}
 
 		sectionThreeAnimation();
+		sectionFourAnimation();
+
+		let sixTimeline = gsap.timeline({
+			scrollTrigger: {
+				trigger: '.section-six',
+				start: 'top top',
+				end: `+=${122 * 20}`,
+
+				pin: true,
+				scrub: 1
+			}
+		});
 
 		let scrollImages = (canvasId, texts, imageFolder) => {
 			ScrollTrigger.matchMedia({
@@ -175,17 +188,18 @@
 						images.push(img);
 					}
 
-					tl.fromTo(
-						'#product-info__description1',
-						{
-							autoAlpha: 0,
-							ease: 'power4.easeOut'
-						},
-						{
-							autoAlpha: 1,
-							ease: 'power4.easeOut'
-						}
-					)
+					sixTimeline
+						.fromTo(
+							'#product-info__description1',
+							{
+								autoAlpha: 0,
+								ease: 'power4.easeOut'
+							},
+							{
+								autoAlpha: 1,
+								ease: 'power4.easeOut'
+							}
+						)
 						.to(
 							'#product-info__description1',
 							{
@@ -259,8 +273,8 @@
 	</div>
 </div>
 
-<div class="h-screen section-zero relative" style="background-color: #F9F8F6">
-	<div class="section-zero__product-image absolute top-0 left-0 w-full h-full">
+<div class="h-screen section-one relative" style="background-color: #F9F8F6">
+	<div class="section-one__product-image absolute top-0 left-0 w-full h-full overflow-hidden">
 		<img
 			src="/assets/hub.png"
 			class="h-3/4 md:h-full md:pt-12 absolute -bottom-8 md:bottom-8 right-[-33vw] md:right-[-20vw] xl:right-[-10vw] md:w-full object-contain max-w-[165%] md:max-w-[1120px]"
@@ -268,7 +282,7 @@
 		/>
 	</div>
 	<div
-		class="section-zero__heading text-back text-center md:text-left md:relative md:left-[10vw] max-w-[296px] mx-auto md:ml-0 mr-auto md:max-w-[427px]"
+		class="section-one__heading text-back text-center md:text-left md:relative md:left-[10vw] max-w-[296px] mx-auto md:ml-0 mr-auto md:max-w-[427px]"
 	>
 		<p class="title-font text-36 md:text-42 md:leading-snug leading-tight pt-32 mx-auto">
 			A beating heart in Keus homes
@@ -276,19 +290,19 @@
 		<p class="text-24 leading-8 mt-6 mx-auto">To deliver a superlative smart home experience.</p>
 	</div>
 	<p
-		class="section-zero__title2 title-font text-26 leading-9 max-w-[250px] mx-auto md:max-w-none text-center md:text-right absolute bottom-[10%] md:bottom-[42%] w-full md:w-2/6 left-0 md:left-auto right-0 md:right-[75vw] lg:right-[65vw]"
+		class="section-one__title2 title-font text-26 leading-9 max-w-[250px] mx-auto md:max-w-none text-center md:text-right absolute bottom-[10%] md:bottom-[42%] w-full md:w-2/6 left-0 md:left-auto right-0 md:right-[75vw] lg:right-[65vw]"
 	>
 		Stores and backs up <br /> everything that matters
 	</p>
 	<div
-		class="section-zero__title3 absolute max-w-[250px] mx-auto md:max-w-none bottom-[15%] md:bottom-[31%] text-26 leading-9 text-center md:text-right w-full md:w-2/6 left-0 md:left-auto right-0 md:right-[75vw] lg:right-[65vw]"
+		class="section-one__title3 absolute max-w-[250px] mx-auto md:max-w-none bottom-[15%] md:bottom-[31%] text-26 leading-9 text-center md:text-right w-full md:w-2/6 left-0 md:left-auto right-0 md:right-[75vw] lg:right-[65vw]"
 	>
 		<p class="title-font text-26 leading-9">Auto Updates - OTA</p>
 		<p class="text-16 leading-6">An always up to date and secure system</p>
 	</div>
 </div>
 
-<section class="scene section section-one h-screen relative">
+<section class="scene section section-two h-screen relative">
 	<div class="viewer viewer-one relative overflow-hidden" />
 	<div class="sentinel-never-sleeps-text absolute z-10 w-full mt-16 text-center">
 		<p class="title-font text-36 leading-tight">The sentinel never sleeps</p>
@@ -306,11 +320,11 @@
 	class="section-three h-screen relative bg-dark md:flex text-center md:text-left  md:items-center md:justify-evenly flex flex-col md:flex-row items-center justify-center"
 >
 	<p
-		class="section-three__heading title-font text-white text-26 md:text-36 leading-tight w-full md:w-6/12 md:max-w-[400px]"
+		class="section-three__heading title-font text-white text-26 md:text-36 leading-tight w-full md:w-6/12 "
 	>
 		Seamless communication <br /> with the Keus app
 	</p>
-	<div class="section-three__product-image mt-[8vh] md:mt-0">
+	<div class="section-three__product-image mt-[8vh] md:mt-0 overflow-hidden">
 		<img
 			src="/assets/hub-keus-app.png"
 			class=" w-full object-contain max-w-[254px] md:max-w-[346px] mx-auto"
@@ -319,21 +333,19 @@
 	</div>
 </div>
 
-<div class="h-screen text-32 relative md:flex md:items-center" style="background-color: #F9F8F6">
-	<div
-		class="absolute bottom-[10%] md:bottom-auto left-0 md:left-auto right-0 md:right-auto md:relative md:w-1/2"
+<div
+	class="section-four h-screen relative md:flex text-center md:text-left  md:items-center md:justify-evenly flex flex-col md:flex-row items-center justify-center bg-pale-white"
+>
+	<p
+		class="section-four__heading title-font text-26 md:text-36 leading-tight w-full md:w-6/12 md:max-w-[400px]"
 	>
-		<p
-			class="absolute md:max-w-[410px] md:w-full md:relative text-center md:text-right bottom-[10%] md:bottom-auto text-2xl left-1/2 md:left-auto transform -translate-x-1/2 md:translate-auto w-10/12 md:mr-0 md:ml-auto"
-		>
-			Connects Keus smarthome to the internet
-		</p>
-	</div>
+		Seamless communication <br /> with the Keus app
+	</p>
 
-	<div class="absolute md:relative top-0 left-0 w-full md:w-1/2 h-full">
+	<div class="section-four__product-image mt-[8vh] md:mt-0 overflow-hidden">
 		<img
 			src="/assets/hub-back.png"
-			class="h-full absolute w-full object-contain max-w-[110%] md:max-w-[850px] md:right-0"
+			class=" w-full object-contain max-w-[254px] md:max-w-[346px] mx-auto"
 			alt=""
 		/>
 	</div>
@@ -359,7 +371,7 @@
 	</div>
 </div>
 
-<section class="h-screen relative section-two product-ezgif">
+<section class="h-screen relative section-six product-ezgif overflow-hidden">
 	<canvas id="product-ezgif" />
 	<div class="product-content">
 		<div class="product-title-wrapper">
