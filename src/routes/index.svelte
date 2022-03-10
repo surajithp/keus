@@ -69,7 +69,7 @@
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							xPercent: 40,
+							xPercent: 210,
 							duration: 1
 						},
 						3
@@ -119,13 +119,11 @@
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
 							yPercent: 25,
-							xPercent: 10
 						},
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
 							yPercent: 20,
-							xPercent: 10
 						},
 						1
 					)
@@ -133,7 +131,6 @@
 						'.section-zero__product-image',
 						{
 							ease: 'power4.easeOut',
-							yPercent: -20,
 							duration: 1
 						},
 						1
@@ -391,11 +388,11 @@
 </script>
 
 <svelte:window bind:innerHeight />
-<div class="h-screen overflow-hidden flex items-center justify-center hub-intro">
+<div class="h-screen overflow-hidden flex md:items-center justify-center hub-intro">
 	<div class="w-full h-full">
 		<img src="/assets/hub-intro.jpg" class="w-[120%] h-full hub-intro-image object-cover" alt="" />
 	</div>
-	<div class="hub-text absolute text-back ">
+	<div class="hub-text absolute text-back max-w-[296px] md:max-w-full mx-auto mt-[20vh] md:mt-0">
 		<p
 			class="title-font text-42 md:text-75 leading-tight md:leading-120 text-center w-10/12 md:w-full mx-auto"
 		>
@@ -411,15 +408,15 @@
 	<div class="section-zero__product-image absolute top-0 left-0 w-full h-full">
 		<img
 			src="/assets/hub.jpg"
-			class="h-3/4 md:h-full md:pt-12 absolute bottom-8 right-[-20%] md:-right-8 w-[1000px] md:w-full object-contain max-w-[110%] md:max-w-[800px]"
+			class="h-3/4 md:h-full md:pt-12 absolute bottom-8 right-[-20%] md:-right-8 md:w-full object-contain max-w-[110%] md:max-w-[800px]"
 			alt=""
 		/>
 	</div>
-	<div class="section-zero__heading text-back text-center w-4/5">
-		<p class="title-font text-36 leading-tight pt-32">The beating heart in keus homes</p>
-		<p class="text-24 leading-8 mt-6">To deliver a superlative smart home experience.</p>
+	<div class="section-zero__heading text-back text-center md:text-left md:relative md:left-[10vw] max-w-[296px] mx-auto md:ml-0 mr-auto md:max-w-[427px]">
+		<p class="title-font text-36 md:text-42 md:leading-snug leading-tight pt-32 mx-auto">A beating heart in Keus homes</p>
+		<p class="text-24 leading-8 mt-6 mx-auto">To deliver a superlative smart home experience.</p>
 	</div>
-	<p class="section-zero__title2 absolute bottom-1/3">
+	<p class="section-zero__title2 title-font max-w-[200px] text-26 leading-9 text-center md:text-right absolute bottom-1/3">
 		Stores and backs up everything that matters
 	</p>
 	<div class="section-zero__title3 absolute bottom-1/4">
