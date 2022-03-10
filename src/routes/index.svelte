@@ -6,6 +6,7 @@
 	import { sectionOneAnimation } from '../utils/hub/SectionOne.svelte';
 	import { sectionThreeAnimation } from '../utils/hub/SectionThree.svelte';
 	import { sectionFourAnimation } from '../utils/hub/SectionFour.svelte';
+  import { sectionSevenAnimation } from '../utils/hub/SectionSeven.svelte';
   import { sectionEightAnimation } from '../utils/hub/SectionEight.svelte';
 
 	import '../app.css';
@@ -138,6 +139,7 @@
 
 		sectionThreeAnimation();
 		sectionFourAnimation();
+    sectionSevenAnimation();
     sectionEightAnimation();
 
 		let sixTimeline = gsap.timeline({
@@ -395,16 +397,14 @@
 		</div>
 	</div>
 </section> -->
+<div class="section-seven h-screen w-full relative overflow-hidden md:flex md:items-center">
+  <p class="section-seven__heading text-back text-center md:text-left md:absolute relative top-[10vh] md:left-[10vw] max-w-[296px] md:ml-0 mr-auto md:max-w-[427px] title-font text-36 md:text-42 md:leading-snug leading-tight mx-auto">Small and beautiful</p>
+  <p class="section-seven__title2 title-font text-26 leading-9 max-w-[250px] mx-auto md:max-w-none text-center md:text-right absolute bottom-[10%] md:bottom-[42%] w-full md:w-2/6 left-0 md:left-auto right-0 md:right-[75vw] lg:right-[65vw]">Mili-second executions from anywhere in the world</p>
+  <img src="/assets/hub-top.png" class="h-full w-full max-w-[800px] max-h-[785px] object-contain md:mr-0 md:ml-auto section-seven__product-image" alt=""/>
+</div>
+
 
 <div class="section-eight h-screen w-full relative bg-[#D0CDC8] overflow-hidden">
-  <p
-    class="section-eight__heading text-26 leading-8 title-font absolute w-full text-center md:text-right left-1/2 md:left-[20%] md:top-1/2 md:bottom-auto transform -translate-x-1/2 md:-translate-y-1/2 max-w-[230px] ml-0 md:mx-auto top-[15vh]"
-  >
-    Wall or tabletop You decide
-  </p>
-	<img
-		src="/assets/hub-wall-and-desk-mount.jpg"
-		class="h-full w-full md:w-8/12 object-cover md:mr-0 md:ml-auto section-eight__product-image"
-		alt=""
-	/>
+  <p class="section-eight__heading text-26 leading-8 title-font absolute w-full text-center md:text-right left-1/2 md:left-[20%] md:top-1/2 md:bottom-auto transform -translate-x-1/2 md:-translate-y-1/2 max-w-[230px] ml-0 md:mx-auto top-[15vh]">Wall or tabletop You decide</p>
+	<img src="/assets/hub-wall-and-desk-mount.jpg" class="h-full w-full md:w-8/12 object-cover md:mr-0 md:ml-auto section-eight__product-image" alt=""/>
 </div>
