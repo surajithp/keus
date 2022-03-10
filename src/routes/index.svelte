@@ -31,13 +31,11 @@
 			opacity: 0
 		});
 
-		// product with text
-		let pwt = gsap.timeline({
+		// Section Zero
+		let sectionZero = gsap.timeline({
 			scrollTrigger: {
 				trigger: '.section-zero',
 				start: 'top top',
-				// end: `+=${122 * 50}`,
-
 				pin: true,
 				scrub: 1
 			}
@@ -45,31 +43,19 @@
 
 		ScrollTrigger.matchMedia({
 			// desktop text timeline
-			'(min-width: 800px)': function () {
-				// setup animations and ScrollTriggers for screens 800px wide or greater (desktop) here...
-				// These ScrollTriggers will be reverted/killed when the media query doesn't match anymore.
-				// Timeline for fading in and fading out the text
-			},
-			// mobile text timeline
-			'(max-width: 799px)': function () {
-				// The ScrollTriggers created inside these functions are segregated and get
-				// reverted/killed when the media query doesn't match anymore.
-			},
-			all: function () {
-				pwt
+			'(min-width: 768px)': function () {
+				sectionZero
 					.fromTo(
 						'.section-zero__heading',
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							yPercent: 25,
-							xPercent: 10
+							yPercent: 25
 						},
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							yPercent: 20,
-							xPercent: 10
+							yPercent: 20
 						},
 						1
 					)
@@ -85,7 +71,8 @@
 							ease: 'power4.easeOut',
 							xPercent: 40,
 							duration: 1
-						}
+						},
+						3
 					)
 					.to(
 						'.section-zero__title2',
@@ -121,7 +108,86 @@
 						},
 						'+=1'
 					);
-			}
+			},
+			// mobile text timeline
+			'(max-width: 767px)': function () {
+				sectionZero
+
+					.fromTo(
+						'.section-zero__heading',
+						{
+							autoAlpha: 1,
+							ease: 'power4.easeOut',
+							yPercent: 25,
+							xPercent: 10
+						},
+						{
+							autoAlpha: 0,
+							ease: 'power4.easeOut',
+							yPercent: 20,
+							xPercent: 10
+						},
+						1
+					)
+					.to(
+						'.section-zero__product-image',
+						{
+							ease: 'power4.easeOut',
+							yPercent: -20,
+							duration: 1
+						},
+						1
+					)
+					.fromTo(
+						'.section-zero__title2',
+						{
+							autoAlpha: 0,
+							ease: 'power4.easeOut',
+							yPercent: 25
+						},
+						{
+							autoAlpha: 1,
+							ease: 'power4.easeOut',
+							yPercent: 0,
+							duration: 1
+						}
+					)
+					.to(
+						'.section-zero__title2',
+						{
+							autoAlpha: 0,
+							ease: 'power4.easeOut',
+							yPercent: -40,
+							duration: 1
+						},
+						'+=1'
+					)
+					.fromTo(
+						'.section-zero__title3',
+						{
+							autoAlpha: 0,
+							ease: 'power4.easeOut',
+							xPercent: -25
+						},
+						{
+							autoAlpha: 1,
+							ease: 'power4.easeOut',
+							xPercent: 40,
+							duration: 1
+						}
+					)
+					.to(
+						'.section-zero__title3',
+						{
+							autoAlpha: 0,
+							ease: 'power4.easeOut',
+							xPercent: -25,
+							duration: 1
+						},
+						'+=1'
+					);
+			},
+			all: function () {}
 		});
 
 		// Text enter and leave screen
@@ -212,8 +278,10 @@
 		images[0].onload = render;
 
 		function render() {
+			var imgWidth = (canvas.height * images[frames.frame].width) / images[frames.frame].height;
+			console.log(imgWidth);
 			context.clearRect(0, 0, canvas.width, canvas.height);
-			context.drawImage(images[frames.frame], 0, 0);
+			context.drawImage(images[frames.frame], -400, 0, imgWidth, canvas.height);
 		}
 
 		let scrollImages = (canvasId, texts, imageFolder) => {
@@ -239,10 +307,6 @@
 
 					canvas.width = document.body.clientWidth;
 					canvas.height = innerHeight;
-
-					//const frameCount = 199;
-					//const currentFrame = (index) =>
-					//`${imageFolder}/${(index + 1).toString().padStart(4, "0")}.jpg`;
 
 					const frameCount = 122;
 					const currentFrame = (index) =>
@@ -328,12 +392,18 @@
 
 <svelte:window bind:innerHeight />
 <div class="h-screen overflow-hidden flex items-center justify-center hub-intro">
-  <div class="w-full h-full">
-    <img src="/assets/hub-intro.jpg" class="w-[10000px] max-w-[120%] h-full hub-intro-image object-cover" alt="" />
-  </div>
+	<div class="w-full h-full">
+		<img src="/assets/hub-intro.jpg" class="w-[120%] h-full hub-intro-image object-cover" alt="" />
+	</div>
 	<div class="hub-text absolute text-back ">
-		<p class="title-font text-42 md:text-75 leading-tight md:leading-120 text-center w-10/12 md:w-full mx-auto">Meet the sentinel</p>
-		<p class=" text-20 leading-8 mt-4 text-center w-10/12 md:w-full mx-auto">A truly advanced gatekeeper for the smartest homes.</p>
+		<p
+			class="title-font text-42 md:text-75 leading-tight md:leading-120 text-center w-10/12 md:w-full mx-auto"
+		>
+			Meet the sentinel
+		</p>
+		<p class=" text-20 leading-8 mt-4 text-center w-10/12 md:w-full mx-auto">
+			A truly advanced gatekeeper for the smartest homes.
+		</p>
 	</div>
 </div>
 
