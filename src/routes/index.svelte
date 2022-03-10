@@ -1,13 +1,12 @@
 <script>
 	import { onMount } from 'svelte';
-	import { gsap } from 'gsap';
-	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import {gsap}  from "gsap/dist/gsap";        
+  import {ScrollTrigger} from "gsap/dist/ScrollTrigger"; 
 	import CanvasAnimation from '../utils/CanvasAnimation.svelte';
 	import { sectionOneAnimation } from '../utils/hub/SectionOne.svelte';
 
 	import '../app.css';
 
-	let clientWidth;
 	let canvas;
 	let innerHeight;
 	$: console.log(innerHeight);
@@ -46,31 +45,27 @@
 		ScrollTrigger.create({
 			trigger: '.section-one',
 			start: 'top 60%',
-			end: 'top 10%',
+			end: 'top -10%',
 
 			onEnter: () =>
 				gsap.to('.sentinel-never-sleeps-text', {
 					y: 0,
 					opacity: 1,
-					stagger: 0.2
 				}),
 			onLeave: () =>
 				gsap.to('.sentinel-never-sleeps-text', {
 					y: -50,
 					opacity: 0,
-					stagger: 0.2
 				}),
 			onEnterBack: () =>
 				gsap.to('.sentinel-never-sleeps-text', {
 					y: 0,
 					opacity: 1,
-					stagger: -0.2
 				}),
 			onLeaveBack: () =>
 				gsap.to('.sentinel-never-sleeps-text', {
 					y: 50,
 					opacity: 0,
-					stagger: -0.2
 				})
 		});
 
@@ -106,7 +101,14 @@
 			images.push(img);
 		}
 
-		gsap.timeline().to(frames, {
+		gsap.timeline()
+    .to(frames, {
+      frame: 0,
+      snap: 'frame',
+      duration: 4,
+      onUpdate: render
+    })
+    .to(frames, {
 			frame: 92 - 1,
 			snap: 'frame',
 			ease: 'none',
@@ -166,7 +168,7 @@
 						img.src = currentFrame(i);
 						images.push(img);
 					}
-
+          
 					tl.fromTo(
 						'#product-info__description1',
 						{
@@ -254,10 +256,11 @@
 <div class="h-screen section-zero relative" style="background-color: #F9F8F6">
 	<div class="section-zero__product-image absolute top-0 left-0 w-full h-full">
 		<img
-			src="/assets/hub.jpg"
-			class="h-3/4 md:h-full md:pt-12 absolute bottom-8 right-[-20%] md:-right-8 md:w-full object-contain max-w-[110%] md:max-w-[800px]"
+			src="/assets/hub.png"
+			class="h-3/4 md:h-full md:pt-12 absolute -bottom-8 md:bottom-8 right-[-33vw] md:right-[-20vw] xl:right-[-10vw] md:w-full object-contain max-w-[165%] md:max-w-[1120px]"
 			alt=""
 		/>
+
 	</div>
 	<div
 		class="section-zero__heading text-back text-center md:text-left md:relative md:left-[10vw] max-w-[296px] mx-auto md:ml-0 mr-auto md:max-w-[427px]"
@@ -268,20 +271,20 @@
 		<p class="text-24 leading-8 mt-6 mx-auto">To deliver a superlative smart home experience.</p>
 	</div>
 	<p
-		class="section-zero__title2 title-font max-w-[200px] text-26 leading-9 text-center md:text-right absolute bottom-1/3"
+		class="section-zero__title2 title-font text-26 leading-9 max-w-[250px] mx-auto md:max-w-none text-center md:text-right absolute bottom-[10%] md:bottom-[42%] w-full md:w-2/6 left-0 md:left-auto right-0 md:right-[75vw] lg:right-[65vw]"
 	>
-		Stores and backs up everything that matters
+		Stores and backs up <br/> everything that matters
 	</p>
-	<div class="section-zero__title3 absolute bottom-1/4">
-		<p>Auto Updates</p>
-		<p>An always up to date and secure system</p>
+	<div class="section-zero__title3 absolute max-w-[250px] mx-auto md:max-w-none bottom-[15%] md:bottom-[31%] text-26 leading-9 text-center md:text-right w-full md:w-2/6 left-0 md:left-auto right-0 md:right-[75vw] lg:right-[65vw]">
+		<p class="title-font text-26 leading-9">Auto Updates - OTA </p>
+		<p class="text-16 leading-6">An always up to date and secure system</p>
 	</div>
 </div>
 
 <section class="scene section section-one h-screen relative">
 	<div class="viewer viewer-one relative overflow-hidden" />
 	<div class="sentinel-never-sleeps-text absolute z-10 w-full mt-16 text-center">
-		<p class="text-2xl md:text-4xl">The sentinel never sleeps</p>
+		<p class="title-font text-36 leading-tight">The sentinel never sleeps</p>
 	</div>
 	<!-- <CanvasAnimation
 		frameCount="95"
