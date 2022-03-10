@@ -25,12 +25,13 @@
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							xPercent: 0
+							xPercent: 0,
+							yPercent: 100
 						},
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							xPercent: 20,
+							xPercent: 10,
 							duration: 1
 						},
 						0
@@ -64,9 +65,9 @@
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							yPercent: 0
+							yPercent: -25
 						},
-						'+=1'
+						1
 					)
 
 					.to('.section-four__heading', {}, '+=1');

@@ -14,11 +14,12 @@
 
 	let canvas;
 	let innerHeight;
+
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
 		ScrollTrigger.defaults({
 			invalidateOnRefresh: true,
-			markers: true
+			markers: false
 		});
 
 		//main banner
@@ -52,23 +53,30 @@
 			end: 'top -10%',
 
 			onEnter: () =>
-				gsap.to('.sentinel-never-sleeps-text', {
-					y: 0,
-					opacity: 1
-				}),
+				gsap.fromTo(
+					'.sentinel-never-sleeps-text',
+					{
+						y: 200,
+						opacity: 0
+					},
+					{
+						y: 130,
+						opacity: 1
+					}
+				),
 			onLeave: () =>
 				gsap.to('.sentinel-never-sleeps-text', {
-					y: -50,
+					y: 110,
 					opacity: 0
 				}),
 			onEnterBack: () =>
 				gsap.to('.sentinel-never-sleeps-text', {
-					y: 0,
+					y: 130,
 					opacity: 1
 				}),
 			onLeaveBack: () =>
 				gsap.to('.sentinel-never-sleeps-text', {
-					y: 50,
+					y: 200,
 					opacity: 0
 				})
 		});
@@ -78,66 +86,74 @@
 		let tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: '.section-two',
-				start: 'top top',
-				end: `+=${122 * 20}`,
+				start: 'top',
+				// end: `+=${122 * 20}`,
 
 				pin: true,
 				scrub: 1
 			}
 		});
 
-		const context = canvas.getContext('2d');
+		let sectionTwoAnimation = () => {
+			ScrollTrigger.matchMedia({
+				all: function () {
+					const context = canvas.getContext('2d');
 
-		canvas.width = document.body.clientWidth;
-		canvas.height = innerHeight;
+					canvas.width = document.body.clientWidth;
+					canvas.height = innerHeight;
 
-		const currentFrame = (index) =>
-			`/assets/bscene/bscene_${(index + 1).toString().padStart(3, '0')}.jpg`;
+					const currentFrame = (index) =>
+						`/assets/bscene/bscene_${(index + 1).toString().padStart(3, '0')}.jpg`;
 
-		const images = [];
-		const frames = {
-			frame: 0
-		};
+					const images = [];
+					const frames = {
+						frame: 0
+					};
 
-		for (let i = 0; i < 92; i++) {
-			const img = new Image();
-			img.src = currentFrame(i);
-			images.push(img);
-		}
+					for (let i = 0; i < 92; i++) {
+						const img = new Image();
+						img.src = currentFrame(i);
+						images.push(img);
+					}
 
-		gsap
-			.timeline()
-			.to(frames, {
-				frame: 0,
-				snap: 'frame',
-				duration: 4,
-				onUpdate: render
-			})
-			.to(frames, {
-				frame: 92 - 1,
-				snap: 'frame',
-				ease: 'none',
-				scrollTrigger: {
-					trigger: '.section-two',
-					start: 'top top',
-					pin: true,
-					scrub: 0.5
-				},
-				onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate
+					tl.to(
+						frames,
+						{
+							frame: 0,
+							snap: 'frame',
+							duration: 4,
+							onUpdate: render
+						},
+						'+=2'
+					).to(frames, {
+						frame: 92 - 1,
+						snap: 'frame',
+						ease: 'none',
+						scrollTrigger: {
+							trigger: '.section-two',
+							start: 'top top',
+							pin: true,
+							scrub: 0.5
+						},
+						onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate
+					});
+
+					images[0].onload = render;
+
+					function render() {
+						var imgWidth =
+							(canvas.height * images[frames.frame].width) / images[frames.frame].height;
+						context.clearRect(0, 0, canvas.width, canvas.height);
+						if (document.body.clientWidth <= 768) {
+							context.drawImage(images[frames.frame], -430, 0, imgWidth, canvas.height);
+						} else {
+							context.drawImage(images[frames.frame], 0, 0, imgWidth, canvas.height);
+						}
+					}
+				}
 			});
-
-		images[0].onload = render;
-
-		function render() {
-			var imgWidth = (canvas.height * images[frames.frame].width) / images[frames.frame].height;
-			context.clearRect(0, 0, canvas.width, canvas.height);
-			if (document.body.clientWidth <= 768) {
-				context.drawImage(images[frames.frame], -400, 0, imgWidth, canvas.height);
-			} else {
-				context.drawImage(images[frames.frame], 0, 0);
-			}
-		}
-
+		};
+		sectionTwoAnimation();
 		sectionThreeAnimation();
 		sectionFourAnimation();
 		sectionFiveAnimation();
@@ -153,7 +169,7 @@
 			}
 		});
 
-		let scrollImages = (canvasId, texts, imageFolder) => {
+		let sectionSixAnimation = (canvasId, texts, imageFolder) => {
 			ScrollTrigger.matchMedia({
 				// desktop text timeline
 				'(min-width: 768px)': function () {
@@ -162,11 +178,11 @@
 					// Timeline for fading in and fading out the text
 					// this is the bit that does the image scrolling
 					const canvasIdWithoutHash = canvasId.substring(1);
-					const canvas = document.getElementById(canvasIdWithoutHash);
-					const context = canvas.getContext('2d');
+					const hubCanvas = document.getElementById(canvasIdWithoutHash);
+					const context = hubCanvas.getContext('2d');
 
-					canvas.width = document.body.clientWidth;
-					canvas.height = innerHeight;
+					hubCanvas.width = document.body.clientWidth;
+					hubCanvas.height = innerHeight;
 					let currentFrame;
 
 					const frameCount = 122;
@@ -186,17 +202,6 @@
 					}
 
 					sixTimeline
-						.fromTo(
-							'#product-info__description1',
-							{
-								autoAlpha: 0,
-								ease: 'power4.easeOut'
-							},
-							{
-								autoAlpha: 1,
-								ease: 'power4.easeOut'
-							}
-						)
 						.to(
 							'#product-info__description1',
 							{
@@ -204,7 +209,7 @@
 								duration: 1,
 								ease: 'power4.easeOut'
 							},
-							'+=2'
+							'+=1'
 						)
 						.to(products, {
 							frame: 67,
@@ -237,13 +242,29 @@
 							snap: 'frame',
 							duration: 2,
 							onUpdate: render
-						});
+						})
+						.fromTo(
+							'#product-info__description3',
+							{
+								autoAlpha: 0,
+								ease: 'power4.easeOut',
+								y: 100
+							},
+							{
+								autoAlpha: 1,
+								ease: 'power4.easeOut',
+								y: 0
+							}
+						)
+						.to('#product-info__description3', {}, '+=1');
 
 					images[0].onload = render;
 
 					function render() {
-						context.clearRect(0, 0, canvas.width, canvas.height);
-						context.drawImage(images[products.frame], 0, 0);
+						let imgWidth =
+							(hubCanvas.height * images[products.frame].width) / images[products.frame].height;
+						context.clearRect(0, 0, hubCanvas.width, hubCanvas.height);
+						context.drawImage(images[products.frame], 0, 0, imgWidth, hubCanvas.height);
 					}
 				},
 				// mobile text timeline
@@ -252,11 +273,11 @@
 					// reverted/killed when the media query doesn't match anymore.
 					// this is the bit that does the image scrolling
 					const canvasIdWithoutHash = canvasId.substring(1);
-					const canvas = document.getElementById(canvasIdWithoutHash);
-					const context = canvas.getContext('2d');
+					const hubCanvas = document.getElementById(canvasIdWithoutHash);
+					const context = hubCanvas.getContext('2d');
 
-					canvas.width = document.body.clientWidth;
-					canvas.height = innerHeight;
+					hubCanvas.width = document.body.clientWidth;
+					hubCanvas.height = innerHeight;
 					let currentFrame;
 
 					const frameCount = 122;
@@ -328,19 +349,33 @@
 							snap: 'frame',
 							duration: 2,
 							onUpdate: render
-						});
+						})
+						.fromTo(
+							'#product-info__description3',
+							{
+								autoAlpha: 0,
+								ease: 'power4.easeOut',
+								y: 100
+							},
+							{
+								autoAlpha: 1,
+								ease: 'power4.easeOut',
+								y: 0
+							}
+						)
+						.to('#product-info__description3', {}, '+=1');
 
 					images[0].onload = render;
 
 					function render() {
 						var imgHeight =
-							(canvas.width * images[products.frame].height) / images[products.frame].width;
-						context.clearRect(0, 0, canvas.width, canvas.height);
+							(hubCanvas.width * images[products.frame].height) / images[products.frame].width;
+						context.clearRect(0, 0, hubCanvas.width, hubCanvas.height);
 						context.drawImage(
 							images[products.frame],
 							0,
-							(canvas.height - imgHeight) / 2,
-							canvas.width,
+							(hubCanvas.height - imgHeight) / 2,
+							hubCanvas.width,
 							imgHeight
 						);
 					}
@@ -350,7 +385,8 @@
 				}
 			});
 		};
-		scrollImages('#product-ezgif');
+
+		sectionSixAnimation('#product-ezgif');
 
 		sectionSevenAnimation();
 		sectionEightAnimation();
@@ -364,13 +400,17 @@
 	<div class="w-full h-full">
 		<img src="/assets/hub-intro.jpg" class="w-[120%] h-full hub-intro-image object-cover" alt="" />
 	</div>
-	<div class="hub-text absolute text-back max-w-[296px] md:max-w-full mx-auto mt-[17vh] md:mt-0 md:top-[34vh]">
+	<div
+		class="hub-text absolute text-back max-w-[296px] md:max-w-full mx-auto mt-[17vh] md:mt-0 md:top-[34vh]"
+	>
 		<p
 			class="title-font text-42 md:text-72 leading-tight md:leading-120 text-center w-10/12 md:w-full mx-auto"
 		>
 			Meet the sentinel
 		</p>
-		<p class=" text-20 md:text-20 md:leading-7 leading-8 mt-4 text-center w-10/12 md:w-full mx-auto">
+		<p
+			class=" text-20 md:text-20 md:leading-7 leading-8 mt-4 text-center w-10/12 md:w-full mx-auto"
+		>
 			A truly advanced gatekeeper for the smartest homes.
 		</p>
 	</div>
@@ -387,10 +427,14 @@
 	<div
 		class="section-one__heading text-back text-center md:text-left md:relative md:left-[10vw] max-w-[296px] mx-auto md:ml-0 mr-auto md:max-w-[427px]"
 	>
-		<p class="title-font text-36 md:text-42 md:leading-snug leading-tight pt-24 mx-auto font-medium">
-			A beating heart in Keus homes 
+		<p
+			class="title-font text-36 md:text-42 md:leading-snug leading-tight pt-24 mx-auto font-medium"
+		>
+			A beating heart in Keus homes
 		</p>
-		<p class="text-24 leading-8 mt-6 mx-auto max-w-[272px] md:max-w-[none] font-normal ">To deliver a superlative smart home experience.</p>
+		<p class="text-24 leading-8 mt-6 mx-auto max-w-[272px] md:max-w-[none] font-normal ">
+			To deliver a superlative smart home experience.
+		</p>
 	</div>
 	<p
 		class="section-one__title2 title-font text-26 leading-9 max-w-[250px] mx-auto md:max-w-none text-center md:text-right absolute bottom-[10%] md:bottom-[42%] w-full md:w-2/6 left-0 md:left-auto right-0 md:right-[75vw] lg:right-[65vw]"
@@ -405,10 +449,9 @@
 	</div>
 </div>
 
-<section class="scene section section-two h-screen relative">
-	<div class="viewer viewer-one relative overflow-hidden" />
-	<div class="sentinel-never-sleeps-text absolute z-10 w-full mt-16 text-center">
-		<p class="title-font text-36 leading-tight text-white">The sentinel never sleeps</p>
+<section class="scene section section-two h-screen relative text-white">
+	<div class="sentinel-never-sleeps-text absolute z-10 w-full text-center md:inset-y-1/3">
+		<p class="title-font text-36 leading-tight">The sentinel never sleeps</p>
 	</div>
 	<!-- <CanvasAnimation
 		frameCount="95"
@@ -439,14 +482,16 @@
 <div
 	class="section-four h-screen relative md:flex text-center md:text-left  md:items-center md:justify-evenly flex flex-col md:flex-row items-center justify-center bg-pale-white"
 >
-	<div class="section-four__product-image mt-[8vh] md:mt-0 overflow-hidden">
+	<div class="section-four__product-image mt-[8vh] md:mt-0 overflow-hidden md:absolute md:right-0">
 		<img
 			src="/assets/hub-back.png"
-			class=" w-full object-contain md:max-w-lg xl:max-w-2xl mx-auto"
+			class=" w-full object-contain md:max-w-lg xl:max-w-4xl mx-auto"
 			alt=""
 		/>
 	</div>
-	<p class="section-four__heading title-font text-26 leading-tight  md:text-right w-128">
+	<p
+		class="section-four__heading title-font text-26 leading-tight  md:text-right w-128 md:absolute md:right-2/4"
+	>
 		Connects Keus smarthome to <br /> the internet
 	</p>
 </div>
@@ -456,13 +501,17 @@
 		class="section-five__heading text-center md:text-left md:relative md:left-[10vw] max-w-[296px] mx-auto md:ml-0 mr-auto md:max-w-[427px]"
 	>
 		<p class="title-font text-36 md:text-42 md:leading-snug leading-tight pt-32 mx-auto">
-			Secure like <br /> Fort Knox
+			Secure <br /> like Fort Knox
 		</p>
 	</div>
-	<div class="section-five__product-image w-full overflow-hidden pt-12 md:max-w-[740px] md:ml-auto md:mr-0">
+	<div
+		class="section-five__product-image w-full overflow-hidden pt-12 md:w-1/2 md:absolute md:top-1/4 md:right-[10vw] "
+	>
 		<img src="/assets/hub-chip.png" alt="" />
 	</div>
-	<p class="section-five__title2 title-font text-28 leading-9 px-12 text-center md:text-right">
+	<p
+		class="section-five__title2 title-font text-26 leading-9 px-12 md:px-0 text-center md:text-right md:absolute md:left-0 md:top-1/2 md:max-w-[400px]"
+	>
 		Proprietary security layers to further enchance layers of military grade encryption
 	</p>
 </div>
@@ -470,24 +519,24 @@
 <section class="h-screen relative section-six product-ezgif overflow-hidden bg-dark text-white">
 	<canvas id="product-ezgif" />
 	<div
-		class="product-info__description  text-center w-full absolute top-[10vh]"
+		class="product-info__description  text-center md:text-left w-full md:w-auto absolute top-[10vh] md:top-[20vh] md:left-[20vh]"
 		id="product-info__description1"
 	>
-		<h2 class="text-4xl title-font">Mini but max</h2>
-		<p class="mt-4">Superfast and seriously powerful.</p>
+		<h2 class="text-4xl md:text-42 title-font">Mini but max</h2>
+		<p class="mt-4 md:text-24">Superfast and seriously powerful.</p>
 	</div>
 	<div
-		class="product-info__description absolute inset-y-3/4 w-full text-center text-26 title-font mt-8"
+		class="product-info__description absolute inset-y-3/4 md:inset-y-1/2 md:mt-16 md:left-[40vh] w-full md:w-auto text-center md:text-right text-26 title-font mt-8"
 		id="product-info__description2"
 	>
-		<h2>Multi core performace <br />powerful and fast</h2>
+		<h2>Multi core performace. <br />Powerful and fast.</h2>
 	</div>
 	<div
-		class="product-info__description  text-center w-full absolute bottom-[10vh]"
+		class="product-info__description  text-center md:text-right w-full md:w-auto absolute bottom-[10vh] md:inset-y-1/2 md:left-[40vh] md:opacity-0"
 		id="product-info__description3"
 	>
-		<h2 class="text-4xl title-font">100+ devices per hub - easy!</h2>
-		<p class="mt-4">Large Homes or Larger; We’ve got yourcovered</p>
+		<h2 class="text-26 title-font">100+ devices per hub - easy!</h2>
+		<p class="mt-4 md:mt-0">Large Homes or Larger, We’ve got yourcovered</p>
 	</div>
 </section>
 

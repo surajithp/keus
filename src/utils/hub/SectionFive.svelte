@@ -38,25 +38,15 @@
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							xPercent: -25
+							xPercent: 0
 						},
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							xPercent: 30,
+							xPercent: 10,
 							duration: 1
 						},
 						3
-					)
-					.to(
-						'.section-five__title2',
-						{
-							autoAlpha: 0,
-							ease: 'power4.easeOut',
-							xPercent: -25,
-							duration: 1
-						},
-						'+=1'
 					);
 			},
 			// mobile text timeline
