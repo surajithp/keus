@@ -328,10 +328,12 @@
 
 <svelte:window bind:innerHeight />
 <div class="h-screen overflow-hidden flex items-center justify-center hub-intro">
-	<img src="/assets/hub-intro.jpg" class="w-full h-full object-cover" alt="" />
-	<div class="hub-text absolute">
-		<p class=" text-2xl md:text-4xl text-center">Meet the sentinel</p>
-		<p class=" text-center">A truly advanced gatekeeper for the smartest homes.</p>
+  <div class="w-full h-full">
+    <img src="/assets/hub-intro.jpg" class="w-[10000px] max-w-[120%] h-full hub-intro-image object-cover" alt="" />
+  </div>
+	<div class="hub-text absolute text-back ">
+		<p class="title-font text-42 md:text-75 leading-tight md:leading-120 text-center w-10/12 md:w-full mx-auto">Meet the sentinel</p>
+		<p class=" text-20 leading-8 mt-4 text-center w-10/12 md:w-full mx-auto">A truly advanced gatekeeper for the smartest homes.</p>
 	</div>
 </div>
 
@@ -343,9 +345,9 @@
 			alt=""
 		/>
 	</div>
-	<div class="section-zero__heading">
-		<p class=" text-xl md:text-3xl pt-32">The beating heart in keus homes</p>
-		<p>To deliver a superlative smart home experience.</p>
+	<div class="section-zero__heading text-back text-center w-4/5">
+		<p class="title-font text-36 leading-tight pt-32">The beating heart in keus homes</p>
+		<p class="text-24 leading-8 mt-6">To deliver a superlative smart home experience.</p>
 	</div>
 	<p class="section-zero__title2 absolute bottom-1/3">
 		Stores and backs up everything that matters
@@ -383,7 +385,7 @@
 	/>
 </div>
 
-<div class="h-screen relative md:flex md:items-center" style="background-color: #F9F8F6">
+<div class="h-screen text-32 relative md:flex md:items-center" style="background-color: #F9F8F6">
 	<div
 		class="absolute bottom-[10%] md:bottom-auto left-0 md:left-auto right-0 md:right-auto md:relative md:w-1/2"
 	>
@@ -456,103 +458,7 @@
 	</div>
 	<img
 		src="/assets/hub-wall-and-desk-mount.jpg"
-		class="h-full w-full md:w-[63%] object-cover md:object-contain md:mr-0 md:ml-auto"
+		class="h-full w-full md:w-8/12 object-cover md:mr-0 md:ml-auto"
 		alt=""
 	/>
 </div>
-
-<style>
-	.section {
-		height: 100%;
-		background: black;
-		color: white;
-	}
-	.viewer {
-		max-width: 100%;
-		max-height: 100%;
-		margin-left: auto;
-		margin-right: auto;
-		background-repeat: no-repeat;
-		background-position: 0 0;
-	}
-
-	.product-content {
-		position: absolute;
-		top: 0;
-		width: 100%;
-		height: 100%;
-	}
-
-	.product-title-wrapper {
-		top: 40%;
-		position: absolute;
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
-		flex-direction: column;
-		right: 50px !important;
-		flex-direction: column;
-		width: 50vw;
-		z-index: 2;
-	}
-
-	.product-title {
-		width: 450px;
-		opacity: 0;
-		right: 0;
-		transition: all 0.3s ease-in-out;
-		position: relative;
-	}
-
-	.product-title h1 {
-		position: absolute;
-		top: 0;
-		right: 0;
-		padding-right: 15px;
-		color: white;
-		font-family: Arial, Helvetica, sans-serif;
-		font-size: 118px;
-		font-style: oblique;
-		letter-spacing: 4.9px;
-		line-height: 80px;
-		text-transform: uppercase;
-		text-align: right;
-	}
-
-	.product-info {
-		top: 44%;
-		position: absolute;
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
-		flex-direction: column;
-		left: 50px !important;
-		flex-direction: column;
-		width: 50vw;
-		z-index: 2;
-	}
-
-	.product-info div.product-info__description {
-		width: 450px;
-		opacity: 0;
-		transition: all 0.3s ease-in-out;
-		position: relative;
-	}
-
-	.spacer {
-		height: 700px;
-	}
-
-	.product-info div.product-info__description h2 {
-		position: absolute;
-		top: 0;
-		left: 0;
-		color: #ffffff;
-		font-family: Arial, Helvetica, sans-serif;
-		font-size: 28px;
-		letter-spacing: 0;
-		line-height: 35px;
-		padding-left: 15px;
-		border-left: 3px solid #d2ff02;
-	}
-</style>
