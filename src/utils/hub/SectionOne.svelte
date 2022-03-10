@@ -81,7 +81,8 @@
 							duration: 1
 						},
 						'+=1'
-					);
+					)
+					.to('.section-one__title3', {}, '+=1');
 			},
 			// mobile text timeline
 			'(max-width: 767px)': function () {
