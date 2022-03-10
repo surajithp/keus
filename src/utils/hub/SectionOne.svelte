@@ -1,6 +1,6 @@
 <script context="module">
-  import {gsap}  from "gsap/dist/gsap";        
-  import {ScrollTrigger} from "gsap/dist/ScrollTrigger"; 
+	import { gsap } from 'gsap/dist/gsap';
+	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 	gsap.registerPlugin(ScrollTrigger);
 
@@ -105,7 +105,7 @@
 						'.section-zero__product-image',
 						{
 							ease: 'power4.easeOut',
-              yPercent: -25,
+							yPercent: -25,
 							duration: 1
 						},
 						1
@@ -138,7 +138,7 @@
 						'.section-zero__title3',
 						{
 							autoAlpha: 0,
-							ease: 'power4.easeOut',
+							ease: 'power4.easeOut'
 							// xPercent: -25
 						},
 						{
@@ -147,7 +147,7 @@
 							// xPercent: 40,
 							duration: 1
 						}
-					)
+					);
 			},
 			all: function () {}
 		});

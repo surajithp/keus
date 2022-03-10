@@ -1,15 +1,15 @@
 <script>
 	import { onMount } from 'svelte';
-  import {gsap}  from "gsap/dist/gsap";        
-  import {ScrollTrigger} from "gsap/dist/ScrollTrigger"; 
+	import { gsap } from 'gsap/dist/gsap';
+	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 	import CanvasAnimation from '../utils/CanvasAnimation.svelte';
 	import { sectionOneAnimation } from '../utils/hub/SectionOne.svelte';
+	import { sectionThreeAnimation } from '../utils/hub/SectionThree.svelte';
 
 	import '../app.css';
 
 	let canvas;
 	let innerHeight;
-	$: console.log(innerHeight);
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
 		ScrollTrigger.defaults({
@@ -50,22 +50,22 @@
 			onEnter: () =>
 				gsap.to('.sentinel-never-sleeps-text', {
 					y: 0,
-					opacity: 1,
+					opacity: 1
 				}),
 			onLeave: () =>
 				gsap.to('.sentinel-never-sleeps-text', {
 					y: -50,
-					opacity: 0,
+					opacity: 0
 				}),
 			onEnterBack: () =>
 				gsap.to('.sentinel-never-sleeps-text', {
 					y: 0,
-					opacity: 1,
+					opacity: 1
 				}),
 			onLeaveBack: () =>
 				gsap.to('.sentinel-never-sleeps-text', {
 					y: 50,
-					opacity: 0,
+					opacity: 0
 				})
 		});
 
@@ -101,34 +101,40 @@
 			images.push(img);
 		}
 
-		gsap.timeline()
-    .to(frames, {
-      frame: 0,
-      snap: 'frame',
-      duration: 4,
-      onUpdate: render
-    })
-    .to(frames, {
-			frame: 92 - 1,
-			snap: 'frame',
-			ease: 'none',
-			scrollTrigger: {
-				trigger: '.section-one',
-				start: 'top top',
-				pin: true,
-				scrub: 0.5
-			},
-			onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate
-		});
+		gsap
+			.timeline()
+			.to(frames, {
+				frame: 0,
+				snap: 'frame',
+				duration: 4,
+				onUpdate: render
+			})
+			.to(frames, {
+				frame: 92 - 1,
+				snap: 'frame',
+				ease: 'none',
+				scrollTrigger: {
+					trigger: '.section-one',
+					start: 'top top',
+					pin: true,
+					scrub: 0.5
+				},
+				onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate
+			});
 
 		images[0].onload = render;
 
 		function render() {
 			var imgWidth = (canvas.height * images[frames.frame].width) / images[frames.frame].height;
-			console.log(imgWidth);
 			context.clearRect(0, 0, canvas.width, canvas.height);
-			context.drawImage(images[frames.frame], -400, 0, imgWidth, canvas.height);
+			if (document.body.clientWidth <= 768) {
+				context.drawImage(images[frames.frame], -400, 0, imgWidth, canvas.height);
+			} else {
+				context.drawImage(images[frames.frame], 0, 0);
+			}
 		}
+
+		sectionThreeAnimation();
 
 		let scrollImages = (canvasId, texts, imageFolder) => {
 			ScrollTrigger.matchMedia({
@@ -168,7 +174,7 @@
 						img.src = currentFrame(i);
 						images.push(img);
 					}
-          
+
 					tl.fromTo(
 						'#product-info__description1',
 						{
@@ -260,7 +266,6 @@
 			class="h-3/4 md:h-full md:pt-12 absolute -bottom-8 md:bottom-8 right-[-33vw] md:right-[-20vw] xl:right-[-10vw] md:w-full object-contain max-w-[165%] md:max-w-[1120px]"
 			alt=""
 		/>
-
 	</div>
 	<div
 		class="section-zero__heading text-back text-center md:text-left md:relative md:left-[10vw] max-w-[296px] mx-auto md:ml-0 mr-auto md:max-w-[427px]"
@@ -273,10 +278,12 @@
 	<p
 		class="section-zero__title2 title-font text-26 leading-9 max-w-[250px] mx-auto md:max-w-none text-center md:text-right absolute bottom-[10%] md:bottom-[42%] w-full md:w-2/6 left-0 md:left-auto right-0 md:right-[75vw] lg:right-[65vw]"
 	>
-		Stores and backs up <br/> everything that matters
+		Stores and backs up <br /> everything that matters
 	</p>
-	<div class="section-zero__title3 absolute max-w-[250px] mx-auto md:max-w-none bottom-[15%] md:bottom-[31%] text-26 leading-9 text-center md:text-right w-full md:w-2/6 left-0 md:left-auto right-0 md:right-[75vw] lg:right-[65vw]">
-		<p class="title-font text-26 leading-9">Auto Updates - OTA </p>
+	<div
+		class="section-zero__title3 absolute max-w-[250px] mx-auto md:max-w-none bottom-[15%] md:bottom-[31%] text-26 leading-9 text-center md:text-right w-full md:w-2/6 left-0 md:left-auto right-0 md:right-[75vw] lg:right-[65vw]"
+	>
+		<p class="title-font text-26 leading-9">Auto Updates - OTA</p>
 		<p class="text-16 leading-6">An always up to date and secure system</p>
 	</div>
 </div>
@@ -296,16 +303,20 @@
 </section>
 
 <div
-	class="h-screen relative bg-dark flex flex-col text-center md:text-left md:flex-row items-center justify-evenly"
+	class="section-three h-screen relative bg-dark md:flex text-center md:text-left  md:items-center md:justify-evenly flex flex-col md:flex-row items-center justify-center"
 >
-	<p class="text-white text-4xl leading-snug w-full md:w-6/12 md:max-w-[400px]">
+	<p
+		class="section-three__heading title-font text-white text-26 md:text-36 leading-tight w-full md:w-6/12 md:max-w-[400px]"
+	>
 		Seamless communication <br /> with the Keus app
 	</p>
-	<img
-		src="/assets/hub-keus-app.png"
-		class="w-full object-contain max-w-[254px] md:max-w-[346px]"
-		alt=""
-	/>
+	<div class="section-three__product-image mt-[8vh] md:mt-0">
+		<img
+			src="/assets/hub-keus-app.png"
+			class=" w-full object-contain max-w-[254px] md:max-w-[346px] mx-auto"
+			alt=""
+		/>
+	</div>
 </div>
 
 <div class="h-screen text-32 relative md:flex md:items-center" style="background-color: #F9F8F6">
