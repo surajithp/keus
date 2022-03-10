@@ -4,7 +4,7 @@
   </a>
   <a href="javascript:void(0)" class="inline-block">
     <!-- <p class="text-20 font-medium text-black">Keus Home</p> -->
-    <img src="/assets/keus-logo.png" alt="" class="w-[125px] h-[75px] object-contain px-8 py-2">
+    <img src="/assets/keus-logo.png" alt="" class="w-[125px] object-contain px-8 brightness-0 md:brightness-100">
   </a>
   <a href="javascript:void(0)" class="inline-block md:absolute z-10 cursor-pointer md:right-6">
     <img src="/assets/calendar.svg" alt="" class="w-[31px] h-[29px]">

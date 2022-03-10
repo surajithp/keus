@@ -68,7 +68,7 @@
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							xPercent: 40,
+							xPercent: 30,
 							duration: 1
 						}
 					)
@@ -105,7 +105,7 @@
 						'.section-one__product-image',
 						{
 							ease: 'power4.easeOut',
-							yPercent: -25,
+							yPercent: -18,
 							duration: 1
 						},
 						1

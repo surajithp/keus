@@ -96,7 +96,7 @@
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							yPercent: 0,
+							yPercent: -70,
 							duration: 1
 						}
 					)

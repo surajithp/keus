@@ -364,13 +364,13 @@
 	<div class="w-full h-full">
 		<img src="/assets/hub-intro.jpg" class="w-[120%] h-full hub-intro-image object-cover" alt="" />
 	</div>
-	<div class="hub-text absolute text-back max-w-[296px] md:max-w-full mx-auto mt-[20vh] md:mt-0">
+	<div class="hub-text absolute text-back max-w-[296px] md:max-w-full mx-auto mt-[17vh] md:mt-0 md:top-[34vh]">
 		<p
-			class="title-font text-42 md:text-75 leading-tight md:leading-120 text-center w-10/12 md:w-full mx-auto"
+			class="title-font text-42 md:text-72 leading-tight md:leading-120 text-center w-10/12 md:w-full mx-auto"
 		>
 			Meet the sentinel
 		</p>
-		<p class=" text-20 leading-8 mt-4 text-center w-10/12 md:w-full mx-auto">
+		<p class=" text-20 md:text-20 md:leading-7 leading-8 mt-4 text-center w-10/12 md:w-full mx-auto">
 			A truly advanced gatekeeper for the smartest homes.
 		</p>
 	</div>
@@ -380,17 +380,17 @@
 	<div class="section-one__product-image absolute top-0 left-0 w-full h-full overflow-hidden">
 		<img
 			src="/assets/hub.png"
-			class="h-3/4 md:h-full md:pt-12 absolute -bottom-8 md:bottom-8 right-[-33vw] md:right-[-20vw] xl:right-[-10vw] md:w-full object-contain max-w-[165%] md:max-w-[1120px]"
+			class="h-3/4 md:h-full md:pt-12 absolute bottom-8 right-[-33vw] md:right-[-20vw] xl:right-[-10vw] md:w-full object-contain max-w-[165%] md:max-w-[1120px]"
 			alt=""
 		/>
 	</div>
 	<div
 		class="section-one__heading text-back text-center md:text-left md:relative md:left-[10vw] max-w-[296px] mx-auto md:ml-0 mr-auto md:max-w-[427px]"
 	>
-		<p class="title-font text-36 md:text-42 md:leading-snug leading-tight pt-32 mx-auto">
-			A beating heart in Keus homes
+		<p class="title-font text-36 md:text-42 md:leading-snug leading-tight pt-24 mx-auto font-medium">
+			A beating heart in Keus homes 
 		</p>
-		<p class="text-24 leading-8 mt-6 mx-auto">To deliver a superlative smart home experience.</p>
+		<p class="text-24 leading-8 mt-6 mx-auto max-w-[272px] md:max-w-[none] font-normal ">To deliver a superlative smart home experience.</p>
 	</div>
 	<p
 		class="section-one__title2 title-font text-26 leading-9 max-w-[250px] mx-auto md:max-w-none text-center md:text-right absolute bottom-[10%] md:bottom-[42%] w-full md:w-2/6 left-0 md:left-auto right-0 md:right-[75vw] lg:right-[65vw]"
@@ -401,14 +401,14 @@
 		class="section-one__title3 absolute max-w-[250px] mx-auto md:max-w-none bottom-[15%] md:bottom-[31%] text-26 leading-9 text-center md:text-right w-full md:w-2/6 left-0 md:left-auto right-0 md:right-[75vw] lg:right-[65vw]"
 	>
 		<p class="title-font text-26 leading-9">Auto Updates - OTA</p>
-		<p class="text-16 leading-6">An always up to date and secure system</p>
+		<p class="text-16 leading-6 font-normal">An always up to date and secure system</p>
 	</div>
 </div>
 
 <section class="scene section section-two h-screen relative">
 	<div class="viewer viewer-one relative overflow-hidden" />
 	<div class="sentinel-never-sleeps-text absolute z-10 w-full mt-16 text-center">
-		<p class="title-font text-36 leading-tight">The sentinel never sleeps</p>
+		<p class="title-font text-36 leading-tight text-white">The sentinel never sleeps</p>
 	</div>
 	<!-- <CanvasAnimation
 		frameCount="95"
@@ -459,10 +459,10 @@
 			Secure like <br /> Fort Knox
 		</p>
 	</div>
-	<div class="section-five__product-image  w-full overflow-hidden pt-12">
-		<img src="/assets/hub-chip.png" class=" " alt="" />
+	<div class="section-five__product-image w-full overflow-hidden pt-12 md:max-w-[740px] md:ml-auto md:mr-0">
+		<img src="/assets/hub-chip.png" alt="" />
 	</div>
-	<p class="section-five__title2 title-font text-26 leading-9 px-12 text-center md:text-right">
+	<p class="section-five__title2 title-font text-28 leading-9 px-12 text-center md:text-right">
 		Proprietary security layers to further enchance layers of military grade encryption
 	</p>
 </div>
@@ -493,12 +493,12 @@
 
 <div class="section-seven h-screen w-full relative overflow-hidden md:flex md:items-center">
 	<p
-		class="section-seven__heading text-back text-center md:text-left md:absolute relative top-[10vh] md:left-[10vw] max-w-[296px] md:ml-0 mr-auto md:max-w-[427px] title-font text-36 md:text-42 md:leading-snug leading-tight mx-auto"
+		class="section-seven__heading text-back text-center md:text-left md:absolute relative top-[10vh] md:top-[25vh] md:left-[10vw] max-w-[296px] md:ml-0 mr-auto md:max-w-[427px] title-font text-36 md:text-42 md:leading-snug leading-tight mx-auto"
 	>
-		Small and beautiful
+		Small and Beautiful
 	</p>
 	<p
-		class="section-seven__title2 title-font text-26 leading-9 max-w-[250px] mx-auto md:max-w-none text-center md:text-right absolute bottom-[10%] md:bottom-[42%] w-full md:w-2/6 left-0 md:left-auto right-0 md:right-[75vw] lg:right-[65vw]"
+		class="section-seven__title2 title-font text-26 leading-9 max-w-[309px] mx-auto md:max-w-none text-center md:text-right absolute bottom-[10%] md:bottom-[30vh] w-full md:w-2/6 left-0 md:left-auto right-0 md:right-[75vw] lg:right-[65vw]"
 	>
 		Mili-second executions from anywhere in the world
 	</p>
