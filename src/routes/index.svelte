@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
-	import { gsap } from 'gsap';
-	import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
+	// import { gsap } from 'gsap';
+	// import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
 	import CanvasAnimation from '../utils/CanvasAnimation.svelte';
 	import { sectionOneAnimation } from '../utils/hub/SectionOne.svelte';
 	import { sectionThreeAnimation } from '../utils/hub/SectionThree.svelte';
