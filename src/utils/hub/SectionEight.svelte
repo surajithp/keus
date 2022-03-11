@@ -1,6 +1,6 @@
 <script context="module">
-	import { gsap } from 'gsap/dist/gsap';
-	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 	gsap.registerPlugin(ScrollTrigger);
 
@@ -35,7 +35,7 @@
 						},
 						0
 					)
-          .to('.section-eight__heading', {}, '+=1');
+					.to('.section-eight__heading', {}, '+=1');
 			},
 			// mobile text timeline
 			'(max-width: 767px)': function () {
@@ -50,11 +50,11 @@
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-              duration: 1,
+							duration: 1,
 							yPercent: -30
-						},
+						}
 					)
-          .to('.section-eight__heading', {}, '+=1');
+					.to('.section-eight__heading', {}, '+=1');
 			},
 			all: function () {}
 		});

@@ -1,6 +1,6 @@
 <script context="module">
-	import { gsap } from 'gsap/dist/gsap';
-	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 	gsap.registerPlugin(ScrollTrigger);
 
@@ -57,7 +57,7 @@
 							duration: 1
 						},
 						'+=1'
-					)
+					);
 			},
 			// mobile text timeline
 			'(max-width: 767px)': function () {
@@ -100,7 +100,7 @@
 							duration: 1
 						}
 					)
-          .to('.section-seven__heading', {}, '+=1');
+					.to('.section-seven__heading', {}, '+=1');
 			},
 			all: function () {}
 		});
