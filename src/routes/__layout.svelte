@@ -3,6 +3,8 @@
 	import Footer from '$lib/Footer.svelte';
 </script>
 
-<Nav />
-<slot />
-<Footer />
+<div id="content" class="h-screen">
+	<Nav />
+	<slot />
+	<Footer />
+</div>
