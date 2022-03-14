@@ -21,7 +21,6 @@
 			invalidateOnRefresh: true,
 			markers: false
 		});
-		let sizes = [200, 300, 400, 600, 900, 1200, 1600, 2000];
 
 		//main banner
 
@@ -112,13 +111,13 @@
 					};
 
 					for (let i = 0; i < 92; i++) {
-						let paths = [];
-						for (const size of sizes) {
-							paths.push(`/cdn-cgi/image/width=${size},quality=75${currentFrame(i)} ${size}w`);
-						}
+						// let paths = [];
+						// for (const size of sizes) {
+						// 	paths.push(`/cdn-cgi/image/width=${size},quality=75${currentFrame(i)} ${size}w`);
+						// }
 						const img = new Image();
 						img.src = currentFrame(i);
-						img.srcset = `${paths.join(', ')}`;
+						img.srcset = imgSrcSet(currentFrame(i));
 						images.push(img);
 					}
 
@@ -202,13 +201,13 @@
 					};
 
 					for (let i = 0; i < frameCount; i++) {
-						let paths = [];
-						for (const size of sizes) {
-							paths.push(`/cdn-cgi/image/width=${size},quality=75${currentFrame(i)} ${size}w`);
-						}
+						// let paths = [];
+						// for (const size of sizes) {
+						// 	paths.push(`/cdn-cgi/image/width=${size},quality=75${currentFrame(i)} ${size}w`);
+						// }
 						const img = new Image();
 						img.src = currentFrame(i);
-						img.srcset = `${paths.join(', ')}`;
+						img.srcset = imgSrcSet(currentFrame(i));
 						images.push(img);
 					}
 
@@ -330,13 +329,13 @@
 					};
 
 					for (let i = 0; i < frameCount; i++) {
-						let paths = [];
-						for (const size of sizes) {
-							paths.push(`/cdn-cgi/image/width=${size},quality=75${currentFrame(i)} ${size}w`);
-						}
+						// let paths = [];
+						// for (const size of sizes) {
+						// 	paths.push(`/cdn-cgi/image/width=${size},quality=75${currentFrame(i)} ${size}w`);
+						// }
 						const img = new Image();
 						img.src = currentFrame(i);
-						img.srcset = `${paths.join(', ')}`;
+						img.srcset = imgSrcSet(currentFrame(i));
 						images.push(img);
 					}
 
@@ -455,13 +454,19 @@
 	});
 
 	const imgSrcSet = (imagePath) => {
+		let srcset = '';
 		let sizes = [200, 300, 400, 600, 900, 1200, 1600, 2000];
 		let paths = [];
 
 		for (const size of sizes) {
 			paths.push(`/cdn-cgi/image/width=${size},quality=75${imagePath} ${size}w`);
 		}
-		return `${paths.join(', ')}`;
+		if (import.meta.env.VITE_ENV === 'development') {
+			srcset = '';
+		} else {
+			srcset = `${paths.join(', ')}`;
+		}
+		return srcset;
 	};
 </script>
 
