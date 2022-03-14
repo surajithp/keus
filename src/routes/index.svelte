@@ -459,11 +459,9 @@
 		let paths = [];
 
 		for (const size of sizes) {
-			paths.push(`/cdn-cgi/image/width=${size},quality=75${imagePath} ${size}w`);
+			paths.push(`/cdn-cgi/image/width=${size},quality=75,format=auto${imagePath} ${size}w`);
 		}
-		if (import.meta.env.VITE_ENV === 'development') {
-			srcset = '';
-		} else {
+		if (import.meta.env.VITE_ENV === 'production') {
 			srcset = `${paths.join(', ')}`;
 		}
 		return srcset;
