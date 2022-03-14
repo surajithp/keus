@@ -10,8 +10,9 @@
 			scrollTrigger: {
 				trigger: '.section-one',
 				start: 'top top',
+				end: '3000px',
 				pin: true,
-				scrub: 1
+				scrub: 0.5
 			}
 		});
 
@@ -29,60 +30,52 @@
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
+							duration: 2,
 							yPercent: 20
 						},
-						1
+						'+=2'
 					)
 					.fromTo(
 						'.section-one__title2',
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							xPercent: -25
+							xPercent: 20
 						},
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
 							xPercent: 30,
-							duration: 1
+							duration: 2
 						},
-						3
+						'+=1'
 					)
 					.to(
 						'.section-one__title2',
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							xPercent: -25,
-							duration: 1
+							xPercent: 0,
+							duration: 2
 						},
-						'+=1'
+						'+=2'
 					)
 					.fromTo(
 						'.section-one__title3',
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							xPercent: -25
+							xPercent: 20
 						},
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
 							xPercent: 30,
-							duration: 1
-						}
-					)
-					.to(
-						'.section-one__title3',
-						{
-							autoAlpha: 0,
-							ease: 'power4.easeOut',
-							xPercent: -25,
-							duration: 1
+							duration: 2
 						},
 						'+=1'
 					)
-					.to('.section-one__title3', {}, '+=1');
+					.to('.section-one__title3', {}, '+=2');
 			},
 			// mobile text timeline
 			'(max-width: 767px)': function () {

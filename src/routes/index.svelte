@@ -19,7 +19,7 @@
 		gsap.registerPlugin(ScrollTrigger);
 		ScrollTrigger.defaults({
 			invalidateOnRefresh: true,
-			markers: false
+			markers: true
 		});
 
 		//main banner
@@ -162,7 +162,7 @@
 			scrollTrigger: {
 				trigger: '.section-six',
 				start: 'top top',
-				end: `+=${122 * 20}`,
+				end: `+=${122 * 30}`,
 
 				pin: true,
 				scrub: 1
@@ -212,6 +212,20 @@
 							'+=1'
 						)
 						.to(products, {
+							frame: 22,
+							snap: 'frame',
+							duration: 4,
+							onUpdate: render
+						})
+						.to('#product-info__description3', {}, '+=2')
+						.to(products, {
+							frame: 43,
+							snap: 'frame',
+							duration: 4,
+							onUpdate: render
+						})
+						.to('#product-info__description2', {}, '+=2')
+						.to(products, {
 							frame: 67,
 							snap: 'frame',
 							duration: 4,
@@ -225,7 +239,8 @@
 							},
 							{
 								autoAlpha: 1,
-								ease: 'power4.easeOut'
+								ease: 'power4.easeOut',
+								duration: 2
 							}
 						)
 						.to(
@@ -240,7 +255,7 @@
 						.to(products, {
 							frame: frameCount - 1,
 							snap: 'frame',
-							duration: 2,
+							duration: 8,
 							onUpdate: render
 						})
 						.fromTo(
@@ -248,15 +263,29 @@
 							{
 								autoAlpha: 0,
 								ease: 'power4.easeOut',
-								y: 100
+								y: 25
 							},
 							{
 								autoAlpha: 1,
 								ease: 'power4.easeOut',
 								y: 0
-							}
+							},
+							'+=1'
 						)
-						.to('#product-info__description3', {}, '+=1');
+						.fromTo(
+							'#product-info__description3',
+							{
+								autoAlpha: 1,
+								ease: 'power4.easeOut',
+								y: 0
+							},
+							{
+								autoAlpha: 1,
+								ease: 'power4.easeOut',
+								y: 0
+							},
+							'+=4'
+						);
 
 					images[0].onload = render;
 
@@ -549,7 +578,7 @@
 	<p
 		class="section-seven__title2 title-font text-26 leading-9 max-w-[309px] mx-auto md:max-w-none text-center md:text-right absolute bottom-[10%] md:bottom-[30vh] w-full md:w-2/6 left-0 md:left-auto right-0 md:right-[75vw] lg:right-[65vw]"
 	>
-		Mili-second executions from anywhere in the world
+		Mili-second executions <br />from anywhere in the world
 	</p>
 	<img
 		src="/assets/hub-top.png"

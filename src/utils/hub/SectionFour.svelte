@@ -5,7 +5,7 @@
 	export const sectionFourAnimation = () => {
 		// Section four
 		let sectionFour = gsap.timeline({
-			duration: 3,
+			duration: 2,
 			scrollTrigger: {
 				trigger: '.section-four',
 				start: 'top top',

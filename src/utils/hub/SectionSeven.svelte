@@ -8,6 +8,7 @@
 			scrollTrigger: {
 				trigger: '.section-seven',
 				start: 'top top',
+				end: '3000px',
 				pin: true,
 				scrub: 1
 			}
@@ -36,26 +37,17 @@
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							xPercent: -25
+							xPercent: -20
 						},
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							xPercent: 30,
-							duration: 1
-						},
-						3
-					)
-					.to(
-						'.section-seven__title2',
-						{
-							autoAlpha: 0,
-							ease: 'power4.easeOut',
-							xPercent: -25,
+							xPercent: 0,
 							duration: 1
 						},
 						'+=1'
-					);
+					)
+					.to('.section-seven__heading', {}, '+=1');
 			},
 			// mobile text timeline
 			'(max-width: 767px)': function () {
