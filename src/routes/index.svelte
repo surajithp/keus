@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	// import { gsap } from 'gsap';
 	// import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
+	import Scrollbar from 'smooth-scrollbar';
 	import CanvasAnimation from '../utils/CanvasAnimation.svelte';
 	import { sectionOneAnimation } from '../utils/hub/SectionOne.svelte';
 	import { sectionThreeAnimation } from '../utils/hub/SectionThree.svelte';
@@ -17,10 +18,41 @@
 
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
+
+		// Setup
+		const scroller = document.querySelector('#content');
+
+		const bodyScrollBar = Scrollbar.init(scroller, {
+			damping: 0.1,
+			delegateTo: document,
+			alwaysShowTracks: true
+		});
+
+		ScrollTrigger.scrollerProxy('#content', {
+			scrollTop(value) {
+				if (arguments.length) {
+					bodyScrollBar.scrollTop = value;
+				}
+				return bodyScrollBar.scrollTop;
+			}
+		});
+
+		bodyScrollBar.addListener(ScrollTrigger.update);
+
 		ScrollTrigger.defaults({
 			invalidateOnRefresh: true,
-			markers: false
+			markers: false,
+			scroller: scroller
 		});
+
+		// Only necessary to correct marker position - not needed in production
+		if (document.querySelector('.gsap-marker-scroller-start')) {
+			const markers = gsap.utils.toArray('[class *= "gsap-marker"]');
+
+			bodyScrollBar.addListener(({ offset }) => {
+				gsap.set(markers, { marginTop: -offset.y });
+			});
+		}
 
 		//main banner
 
