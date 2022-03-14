@@ -21,6 +21,7 @@
 			invalidateOnRefresh: true,
 			markers: true
 		});
+		let sizes = [200, 300, 400, 600, 900, 1200, 1600, 2000];
 
 		//main banner
 
@@ -111,8 +112,13 @@
 					};
 
 					for (let i = 0; i < 92; i++) {
+						let paths = [];
+						for (const size of sizes) {
+							paths.push(`/cdn-cgi/image/width=${size},quality=75${currentFrame(i)} ${size}w`);
+						}
 						const img = new Image();
 						img.src = currentFrame(i);
+						img.srcset = `${paths.join(', ')}`;
 						images.push(img);
 					}
 
@@ -196,8 +202,13 @@
 					};
 
 					for (let i = 0; i < frameCount; i++) {
+						let paths = [];
+						for (const size of sizes) {
+							paths.push(`/cdn-cgi/image/width=${size},quality=75${currentFrame(i)} ${size}w`);
+						}
 						const img = new Image();
 						img.src = currentFrame(i);
+						img.srcset = `${paths.join(', ')}`;
 						images.push(img);
 					}
 
@@ -319,8 +330,13 @@
 					};
 
 					for (let i = 0; i < frameCount; i++) {
+						let paths = [];
+						for (const size of sizes) {
+							paths.push(`/cdn-cgi/image/width=${size},quality=75${currentFrame(i)} ${size}w`);
+						}
 						const img = new Image();
 						img.src = currentFrame(i);
+						img.srcset = `${paths.join(', ')}`;
 						images.push(img);
 					}
 
@@ -410,7 +426,7 @@
 					}
 				},
 				all: function () {
-					console.clear();
+					// console.clear();
 				}
 			});
 		};
