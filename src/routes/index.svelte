@@ -19,7 +19,7 @@
 		gsap.registerPlugin(ScrollTrigger);
 		ScrollTrigger.defaults({
 			invalidateOnRefresh: true,
-			markers: true
+			markers: false
 		});
 		let sizes = [200, 300, 400, 600, 900, 1200, 1600, 2000];
 
@@ -354,6 +354,7 @@
 								y: -25
 							}
 						)
+
 						.to(
 							'#product-info__description1',
 							{
@@ -363,6 +364,20 @@
 							},
 							'+=2'
 						)
+						.to(products, {
+							frame: 22,
+							snap: 'frame',
+							duration: 4,
+							onUpdate: render
+						})
+						.to('#product-info__description3', {}, '+=2')
+						.to(products, {
+							frame: 43,
+							snap: 'frame',
+							duration: 4,
+							onUpdate: render
+						})
+						.to('#product-info__description2', {}, '+=2')
 						.to(products, {
 							frame: 67,
 							snap: 'frame',
@@ -392,7 +407,7 @@
 						.to(products, {
 							frame: frameCount - 1,
 							snap: 'frame',
-							duration: 2,
+							duration: 8,
 							onUpdate: render
 						})
 						.fromTo(
@@ -408,7 +423,7 @@
 								y: 0
 							}
 						)
-						.to('#product-info__description3', {}, '+=1');
+						.to('#product-info__description3', {}, '+=4');
 
 					images[0].onload = render;
 
