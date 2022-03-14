@@ -422,12 +422,27 @@
 
 		ScrollTrigger.refresh();
 	});
+
+	const imgSrcSet = (imagePath) => {
+		let sizes = [200, 300, 400, 600, 900, 1200, 1600, 2000];
+		let paths = [];
+
+		for (const size of sizes) {
+			paths.push(`/cdn-cgi/image/width=${size},quality=75${imagePath} ${size}w`);
+		}
+		return `${paths.join(', ')}`;
+	};
 </script>
 
 <svelte:window bind:innerHeight />
 <div class="h-screen overflow-hidden flex md:items-center justify-center hub-intro">
 	<div class="w-full h-full">
-		<img src="/assets/hub-intro.jpg" class="w-[120%] h-full hub-intro-image object-cover" alt="" />
+		<img
+			src="/assets/hub-intro.jpg"
+			srcset={imgSrcSet('/assets/hub-intro.jpg')}
+			class="w-[120%] h-full hub-intro-image object-cover"
+			alt=""
+		/>
 	</div>
 	<div
 		class="hub-text absolute text-back max-w-[296px] md:max-w-full mx-auto mt-[17vh] md:mt-0 md:top-[34vh]"
@@ -449,6 +464,7 @@
 	<div class="section-one__product-image absolute top-0 left-0 w-full h-full overflow-hidden">
 		<img
 			src="/assets/hub.png"
+			srcset={imgSrcSet('/assets/hub.png')}
 			class="h-3/4 md:h-full md:pt-12 absolute bottom-8 right-[-33vw] md:right-[-20vw] xl:right-[-10vw] md:w-full object-contain max-w-[165%] md:max-w-[1120px]"
 			alt=""
 		/>
@@ -502,6 +518,7 @@
 	<div class="section-three__product-image mt-[8vh] md:mt-0 overflow-hidden">
 		<img
 			src="/assets/hub-keus-app.png"
+			srcset={imgSrcSet('/assets/hub-keus-app.png')}
 			class=" w-full object-contain max-w-[254px] md:max-w-[346px] mx-auto"
 			alt=""
 		/>
@@ -514,6 +531,7 @@
 	<div class="section-four__product-image mt-[8vh] md:mt-0 overflow-hidden md:absolute md:right-0">
 		<img
 			src="/assets/hub-back.png"
+			srcset={imgSrcSet('/assets/hub-back.png')}
 			class=" w-full object-contain md:max-w-lg xl:max-w-4xl mx-auto"
 			alt=""
 		/>
@@ -536,7 +554,7 @@
 	<div
 		class="section-five__product-image w-full overflow-hidden pt-12 md:w-1/2 md:absolute md:top-1/4 md:right-[10vw] "
 	>
-		<img src="/assets/hub-chip.png" alt="" />
+		<img src="/assets/hub-chip.png" srcset={imgSrcSet('/assets/hub-chip.png')} alt="" />
 	</div>
 	<p
 		class="section-five__title2 title-font text-26 leading-9 px-12 md:px-0 text-center md:text-right md:absolute md:left-0 md:top-1/2 md:max-w-[400px]"
@@ -582,6 +600,7 @@
 	</p>
 	<img
 		src="/assets/hub-top.png"
+		srcset={imgSrcSet('/assets/hub-top.png')}
 		class="h-full w-full max-w-[800px] max-h-[785px] object-contain md:mr-0 md:ml-auto section-seven__product-image"
 		alt=""
 	/>
@@ -595,6 +614,7 @@
 	</p>
 	<img
 		src="/assets/hub-wall-and-desk-mount.jpg"
+		srcset={imgSrcSet('/assets/hub-wall-and-desk-mount.jpg')}
 		class="h-full w-full md:w-8/12 object-cover md:mr-0 md:ml-auto section-eight__product-image"
 		alt=""
 	/>
