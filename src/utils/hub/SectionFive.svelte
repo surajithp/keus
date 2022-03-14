@@ -45,7 +45,8 @@
 							duration: 1
 						},
 						3
-					);
+					)
+					.to('.section-three__heading', {}, '+=2');
 			},
 			// mobile text timeline
 			'(max-width: 767px)': function () {
