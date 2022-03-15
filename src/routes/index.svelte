@@ -17,6 +17,7 @@
 	let innerHeight;
 
 	onMount(() => {
+		innerHeight = window.screen.height;
 		gsap.registerPlugin(ScrollTrigger);
 
 		// Setup
@@ -53,6 +54,17 @@
 				gsap.set(markers, { marginTop: -offset.y });
 			});
 		}
+
+		// 		function resize() {
+		//   offset_value = ($('.viewer').height() * 598)/(338); //get desired width of sprite according to defined height
+		//   centering = offset_value/4;
+
+		//   $('.viewer').css('max-width', offset_value);
+		//   $('.viewer2').css('max-width', offset_value);
+		// }
+
+		// ScrollTrigger.addEventListener("refreshInit", resize);
+		// resize();
 
 		//main banner
 
@@ -483,6 +495,10 @@
 		sectionEightAnimation();
 
 		ScrollTrigger.refresh();
+
+		window.addEventListener('resize', () => {
+			innerHeight = window.screen.height;
+		});
 	});
 
 	const imgSrcSet = (imagePath) => {
@@ -500,7 +516,6 @@
 	};
 </script>
 
-<svelte:window bind:innerHeight />
 <div class="h-screen overflow-hidden flex md:items-center justify-center hub-intro">
 	<div class="w-full h-full">
 		<img
