@@ -1,6 +1,6 @@
 <script context="module">
 	import { gsap } from 'gsap';
-	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
 
 	gsap.registerPlugin(ScrollTrigger);
 
