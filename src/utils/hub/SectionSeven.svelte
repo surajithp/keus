@@ -1,6 +1,6 @@
 <script context="module">
-	// import { gsap } from 'gsap';
-	// import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
 
 	export const sectionSevenAnimation = () => {
 		// Section seven
