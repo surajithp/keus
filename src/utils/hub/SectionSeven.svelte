@@ -8,7 +8,6 @@
 			scrollTrigger: {
 				trigger: '.section-seven',
 				start: 'top top',
-				end: '3000px',
 				pin: true,
 				scrub: 1
 			}
@@ -71,7 +70,7 @@
 						'.section-seven__product-image',
 						{
 							ease: 'power4.easeOut',
-							yPercent: -25,
+							yPercent: -15,
 							duration: 1
 						},
 						1
@@ -81,12 +80,12 @@
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							yPercent: 25
+							yPercent: 5
 						},
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							yPercent: -70,
+							yPercent: -10,
 							duration: 1
 						}
 					)

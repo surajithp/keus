@@ -23,13 +23,13 @@
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							xPercent: 0,
+							xPercent: -25,
 							yPercent: 100
 						},
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							xPercent: 10,
+							xPercent: -15,
 							duration: 1
 						},
 						0
@@ -44,11 +44,11 @@
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							yPercent: 0
+							yPercent: 10
 						},
 						{
 							ease: 'power4.easeOut',
-							yPercent: -20,
+							yPercent: 0,
 							duration: 1
 						},
 						1
@@ -58,12 +58,12 @@
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							yPercent: 25
+							yPercent: 15
 						},
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							yPercent: -25
+							yPercent: 0
 						},
 						1
 					)

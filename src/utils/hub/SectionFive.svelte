@@ -70,7 +70,7 @@
 						'.section-five__product-image',
 						{
 							ease: 'power4.easeOut',
-							yPercent: -25,
+							yPercent: -40,
 							duration: 1
 						},
 						1
@@ -80,12 +80,12 @@
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							yPercent: 25
+							yPercent: -80
 						},
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							yPercent: -50,
+							yPercent: -100,
 							duration: 1
 						}
 					)
