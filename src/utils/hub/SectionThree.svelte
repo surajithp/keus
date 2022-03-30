@@ -23,12 +23,12 @@
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							xPercent: 0
+							xPercent: -10
 						},
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							xPercent: 20,
+							xPercent: 0,
 							duration: 1
 						},
 						0
