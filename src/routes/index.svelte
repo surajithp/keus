@@ -645,26 +645,28 @@
 </div>
 
 <div class="h-screen section-five relative bg-dark overflow-x-hidden text-white ">
-	<div class="max-w-screen-xl md:mx-24 w-full h-screen relative mx-auto md:flex md:items-center">
-		<div
-			class="section-five__heading flex-auto text-center md:text-left  max-w-[296px] mx-auto w-[320px] md:mx-0 md:max-w-[427px] md:-mt-40"
-		>
-			<p
-				class="title-font text-[6vh] md:text-[4.2vh] md:leading-snug leading-tight relative top-12 md:top-auto"
+	<div class="max-w-screen-xl  relative mx-auto ">
+		<div class="md:px-24 md:flex md:items-center w-full h-screen">
+			<div
+				class="section-five__heading text-center md:text-left  max-w-[296px] mx-auto w-[320px] md:max-w-[427px] md:-mt-40"
 			>
-				Secure like <br /> Fort Knox
+				<p
+					class="title-font text-[6vh] md:text-[4.2vh] md:leading-snug leading-tight relative top-12 md:top-auto"
+				>
+					Secure like <br /> Fort Knox
+				</p>
+			</div>
+			<div
+				class="section-five__product-image w-full flex-auto overflow-hidden pt-12 md:w-3/5 md:max-w-[800px] "
+			>
+				<img src="/assets/hub-chip.png" srcset={imgSrcSet('/assets/hub-chip.png')} alt="" />
+			</div>
+			<p
+				class="section-five__title2 title-font text-[4.2vh] md:text-[2.6vh] leading-9 px-12 md:px-0 text-center md:text-right md:absolute md:left-0 md:top-1/2 md:max-w-[320px]"
+			>
+				Proprietary security layers to further enchance layers of military grade encryption
 			</p>
 		</div>
-		<div
-			class="section-five__product-image w-full flex-auto overflow-hidden pt-12 md:w-3/5 md:max-w-[800px] "
-		>
-			<img src="/assets/hub-chip.png" srcset={imgSrcSet('/assets/hub-chip.png')} alt="" />
-		</div>
-		<p
-			class="section-five__title2 title-font text-[4.2vh] md:text-[2.6vh] leading-9 px-12 md:px-0 text-center md:text-right md:absolute md:left-0 md:top-1/2 md:max-w-[320px]"
-		>
-			Proprietary security layers to further enchance layers of military grade encryption
-		</p>
 	</div>
 </div>
 
@@ -689,7 +691,7 @@
 	>
 		<h2 class="md:text-[2.6vh] text-[4.2vh] title-font">100+ devices per hub - easy!</h2>
 		<p class="md:text-[1.6vh] text-[2.6vh] mt-4 md:mt-0">
-			Large Homes or Larger, We’ve got yourcovered
+			Large Homes or Larger, We’ve got your covered
 		</p>
 	</div>
 </section>
