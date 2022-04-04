@@ -33,7 +33,7 @@
 						},
 						0
 					)
-					.to('.section-eight__heading', {}, '+=1');
+					.to('.section-eight__heading', {}, '+=2');
 			},
 			// mobile text timeline
 			'(max-width: 767px)': function () {
