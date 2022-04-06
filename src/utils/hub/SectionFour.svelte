@@ -4,19 +4,19 @@
 
 	export const sectionFourAnimation = () => {
 		// Section four
-		let sectionFour = gsap.timeline({
-			duration: 2,
-			scrollTrigger: {
-				trigger: '.section-four',
-				start: 'top top',
-				pin: true,
-				scrub: 1
-			}
-		});
 
 		ScrollTrigger.matchMedia({
 			// desktop text timeline
 			'(min-width: 768px)': function () {
+				let sectionFour = gsap.timeline({
+					duration: 3,
+					scrollTrigger: {
+						trigger: '.section-four',
+						start: 'top top',
+						pin: true,
+						scrub: 1
+					}
+				});
 				sectionFour
 					.fromTo(
 						'.section-four__heading',
@@ -38,6 +38,15 @@
 			},
 			// mobile text timeline
 			'(max-width: 767px)': function () {
+				let sectionFour = gsap.timeline({
+					duration: 1.5,
+					scrollTrigger: {
+						trigger: '.section-four',
+						start: 'top top',
+						pin: true,
+						scrub: 1
+					}
+				});
 				sectionFour
 					.fromTo(
 						'.section-four__product-image',
