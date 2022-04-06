@@ -22,12 +22,12 @@
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							yPercent: 25
+							yPercent: 0
 						},
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							yPercent: 20
+							yPercent: 5
 						},
 						1
 					)
