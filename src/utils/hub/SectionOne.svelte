@@ -6,19 +6,19 @@
 
 	export const sectionOneAnimation = () => {
 		// Section one
-		let sectionOne = gsap.timeline({
-			scrollTrigger: {
-				trigger: '.section-one',
-				start: 'top top',
-				end: '3000px',
-				pin: true,
-				scrub: 0.5
-			}
-		});
 
 		ScrollTrigger.matchMedia({
 			// desktop text timeline
 			'(min-width: 768px)': function () {
+				let sectionOne = gsap.timeline({
+					scrollTrigger: {
+						trigger: '.section-one',
+						start: 'top top',
+						end: '3000px',
+						pin: true,
+						scrub: 0.5
+					}
+				});
 				sectionOne
 					.fromTo(
 						'.section-one__heading',
@@ -79,6 +79,15 @@
 			},
 			// mobile text timeline
 			'(max-width: 767px)': function () {
+				let sectionOne = gsap.timeline({
+					scrollTrigger: {
+						trigger: '.section-one',
+						start: 'top top',
+						end: '1300px',
+						pin: true,
+						scrub: 0.5
+					}
+				});
 				sectionOne
 
 					.fromTo(
@@ -141,7 +150,8 @@
 							// xPercent: 40,
 							duration: 1
 						}
-					);
+					)
+					.to('.section-one__title2', {}, '+=1');
 			},
 			all: function () {}
 		});

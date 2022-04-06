@@ -23,7 +23,7 @@
 	onMount(() => {
 		window.addEventListener('resize', appHeight);
 		appHeight();
-		// innerHeight = window.innerHeight;
+		innerHeight = window.innerHeight;
 		gsap.registerPlugin(ScrollTrigger);
 
 		// Setup
@@ -489,9 +489,7 @@
 						);
 					}
 				},
-				all: function () {
-					// console.clear();
-				}
+				all: function () {}
 			});
 		};
 
@@ -501,6 +499,13 @@
 		sectionEightAnimation();
 		window.addEventListener('resize', () => {
 			innerHeight = window.innerHeight;
+			canvas.width = document.body.clientWidth;
+			canvas.height = innerHeight;
+
+			const hubCanvas = document.getElementById(canvasIdWithoutHash);
+
+			hubCanvas.width = document.body.clientWidth;
+			hubCanvas.height = innerHeight;
 			ScrollTrigger.refresh();
 		});
 		ScrollTrigger.refresh();
