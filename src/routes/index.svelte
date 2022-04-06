@@ -217,7 +217,7 @@
 			scrollTrigger: {
 				trigger: '.section-six',
 				start: 'top top',
-				end: `+=${122 * 30}`,
+				end: `+=${160 * 30}`,
 
 				pin: true,
 				scrub: 1
@@ -240,7 +240,7 @@
 					hubCanvas.height = innerHeight;
 					let currentFrame;
 
-					const frameCount = 122;
+					const frameCount = 243;
 
 					currentFrame = (index) =>
 						`/assets/hub/hub_${(index + 1).toString().padStart(3, '0')}.jpg`;
@@ -272,23 +272,23 @@
 							'+=1'
 						)
 						.to(products, {
-							frame: 22,
+							frame: 44,
 							snap: 'frame',
 							duration: 4,
 							onUpdate: render
 						})
-						.to('#product-info__description3', {}, '+=2')
+						.to('#product-info__description3', {}, '+=1')
 						.to(products, {
-							frame: 43,
+							frame: 86,
 							snap: 'frame',
 							duration: 4,
 							onUpdate: render
 						})
-						.to('#product-info__description2', {}, '+=2')
+						.to('#product-info__description2', {}, '+=1')
 						.to(products, {
-							frame: 67,
+							frame: 134,
 							snap: 'frame',
-							duration: 4,
+							duration: 6,
 							onUpdate: render
 						})
 						.fromTo(
@@ -315,7 +315,7 @@
 						.to(products, {
 							frame: frameCount - 1,
 							snap: 'frame',
-							duration: 8,
+							duration: 12,
 							onUpdate: render
 						})
 						.fromTo(
@@ -369,7 +369,7 @@
 					hubCanvas.height = innerHeight;
 					let currentFrame;
 
-					const frameCount = 122;
+					const frameCount = 243;
 					currentFrame = (index) =>
 						`/assets/hub_mobile/hub_${(index + 1).toString().padStart(3, '0')}.jpg`;
 
@@ -414,21 +414,21 @@
 							'+=2'
 						)
 						.to(products, {
-							frame: 22,
+							frame: 44,
 							snap: 'frame',
 							duration: 4,
 							onUpdate: render
 						})
 						.to('#product-info__description3', {}, '+=2')
 						.to(products, {
-							frame: 43,
+							frame: 86,
 							snap: 'frame',
 							duration: 4,
 							onUpdate: render
 						})
 						.to('#product-info__description2', {}, '+=2')
 						.to(products, {
-							frame: 67,
+							frame: 134,
 							snap: 'frame',
 							duration: 4,
 							onUpdate: render
