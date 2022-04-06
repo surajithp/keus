@@ -602,13 +602,15 @@
 	class="section-three section-height relative bg-dark md:flex text-center md:text-left  md:items-center md:justify-evenly flex flex-col md:flex-row items-center justify-center"
 >
 	<div
-		class="max-w-screen-xl md:mx-24 w-full section-height relative mx-auto md:flex md:items-center"
+		class="max-w-screen-2xl mx-auto w-full section-height relative md:flex md:items-center"
 	>
+  <div class="w-full md:h-full md:justify-end title-top-left ">
 		<p
-			class="section-three__heading h4 md:h2 w-full md:flex md:justify-end md:mr-12 flex-auto text-white"
+			class="section-three__heading h4 md:h2 text-white"
 		>
 			Seamless communication <br /> with the Keus app
 		</p>
+  </div>
 		<div class="section-three__product-image mt-[8vh] md:mr-24 xl:mr-48 flex-auto">
 			<img
 				src="/assets/hub-keus-app.png"
@@ -624,7 +626,7 @@
 	class="section-four section-height relative md:flex text-center md:text-left  md:items-center md:justify-evenly flex flex-col md:flex-row items-center justify-center bg-pale-white"
 >
 	<div
-		class="max-w-screen-xl md:mx-24 w-full section-height relative mx-auto md:flex md:flex-row-reverse md:items-center"
+		class="max-w-screen-2xl w-full section-height relative mx-auto md:flex md:flex-row-reverse md:items-center"
 	>
 		<div
 			class="section-four__product-image mt-[8vh]  md:mt-0 overflow-hidden md:absolute md:right-0"
@@ -645,12 +647,12 @@
 </div>
 
 <div class="section-height section-five relative bg-dark overflow-x-hidden text-white ">
-	<div class="max-w-screen-xl  relative mx-auto ">
-		<div class="md:px-24 md:flex md:items-center w-full section-height">
+	<div class="max-w-screen-2xl  relative mx-auto ">
+		<div class="md:flex md:items-center w-full section-height">
 			<div
-				class="section-five__heading text-center md:text-left  max-w-[296px] mx-auto w-[320px] md:max-w-[427px] md:-mt-40"
+				class="section-five__heading title-top-left md:w-1/2 text-center md:text-left max-w-[296px] mx-auto w-[320px] md:max-w-[none] md:h-full"
 			>
-				<p class="h3 md:h2 relative top-12 md:top-auto">
+				<p class="h3 md:h2 relative">
 					Secure like <br /> Fort Knox
 				</p>
 			</div>
@@ -673,7 +675,7 @@
 >
 	<canvas id="product-ezgif" />
 	<div
-		class="product-info__description  text-center md:text-left w-full md:w-auto absolute top-[10vh] md:top-[20vh] md:left-[20vh]"
+		class="product-info__description title-top-left text-center md:text-left w-full md:w-auto absolute top-0 left-0"
 		id="product-info__description1"
 	>
 		<h2 class="h3 md:h2">Mini but max</h2>
@@ -696,9 +698,9 @@
 
 <div class="section-seven section-height w-full relative overflow-hidden md:flex md:items-center">
 	<div
-		class="max-w-screen-xl md:mx-24 w-full section-height relative mx-auto md:flex md:items-center"
+		class="max-w-screen-2xl w-full section-height relative mx-auto md:flex "
 	>
-		<div class="w-full py-12 mf:py-0 h-full flex flex-wrap content-between md:h-[500px]">
+		<div class="title-top-left w-full flex flex-wrap content-between">
 			<p class="section-seven__heading h3 md:h2 text-center md:text-left w-full md:max-w-[427px]">
 				Small and Beautiful
 			</p>
@@ -711,7 +713,7 @@
 		<img
 			src="/assets/hub-top.png"
 			srcset={imgSrcSet('/assets/hub-top.png')}
-			class="h-full w-full max-w-[800px] max-h-[785px] object-contain md:mr-0 md:ml-auto section-seven__product-image absolute h-full flex items-center top-0 left-0 md:relative md:top-auto md:left-auto md:h-auto -z-10"
+			class="h-full w-full max-w-[800px] max-h-[785px] md:max-h-full object-contain md:mr-0 md:ml-auto section-seven__product-image absolute flex items-center top-0 left-0 md:relative md:top-auto md:left-auto -z-10"
 			alt=""
 		/>
 	</div>
