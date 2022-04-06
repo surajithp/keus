@@ -1,6 +1,9 @@
 module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
+    maxWidth: {
+      'screen-2xl': '1440px'
+    },
     opacity: {
       0: "0",
       25: ".25",

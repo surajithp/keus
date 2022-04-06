@@ -531,52 +531,58 @@
 		<img
 			src="/assets/hub-intro.jpg"
 			srcset={imgSrcSet('/assets/hub-intro.jpg')}
-			class="w-[120%] h-full hub-intro-image object-cover"
+			class="w-[120%] h-full hub-intro-image object-cover pointer-events-none"
 			alt=""
 		/>
 	</div>
 	<div
-		class="hub-text absolute text-back max-w-[296px] md:max-w-full mx-auto mt-[17vh] md:mt-0 md:top-[34vh]"
+		class="hub-text absolute text-back max-w-[296px] md:max-w-[100%] mx-auto mt-[17vh] md:mt-0 md:top-[34vh]"
 	>
 		<p class="h2 md:h1 text-center w-10/12 md:w-full mx-auto">Meet the sentinel</p>
-		<p class="subheader mt-4 text-center w-10/12 md:w-full mx-auto">
+		<p class="subheader mt-4 text-center max-w-[236px] md:max-w-[100%] w-full mx-auto">
 			A truly advanced gatekeeper for the smartest homes.
 		</p>
 	</div>
 </div>
 
 <div class=" section-one overflow-hidden section-height" style="background-color: #F9F8F6; ">
-	<div class="max-w-screen-xl w-full h-full relative mx-auto md:flex md:items-center">
-		<div class="flex-auto md:w-3/5 flex flex-col content-between h-full md:h-[640px] md:ml-[10%]">
+	<div class="max-w-screen-2xl w-full h-full relative mx-auto md:flex md:items-center md:justify-center">
+		<div class="h-full title-top-left">
 			<div
-				class="section-one__heading flex-auto text-back text-center md:text-left md:relative max-w-[296px] mx-auto md:ml-0 md:max-w-[427px]"
+				class="section-one__heading flex-auto text-back text-center md:text-left md:relative mx-auto md:ml-0 max-w-[289px] md:max-w-[auto]"
 			>
-				<p class="h3 md:h2 pt-12 mx-auto">A beating heart in Keus homes</p>
-				<p class="body-text-lg md:subheader mt-6 mx-auto max-w-[272px] md:max-w-[none]  ">
+				<p class="h3 md:h2 mx-auto">A beating heart <br/> in Keus homes</p>
+				<p class="body-text-lg md:subheader mt-4 md:mt-6 mx-auto ">
 					To deliver a superlative smart home experience.
 				</p>
 			</div>
 			<div class="text-center">
 				<p
-					class="section-one__title2 h5 md:h4 absolute bottom-0  w-full md:relative md:bottom-auto md:max-w-none text-center md:text-right mb-16"
+					class="section-one__title2 h5 md:h4 absolute w-full md:relative md:max-w-none text-center md:text-right max-w-[251px] md:max-w-[auto] md:mb-0 md:mt-[67px] left-1/2 transform -translate-x-1/2 md:translate-x-[none] bottom-[18vw] md:bottom-auto md:left-auto"
 				>
 					Stores and backs up <br /> everything that matters
 				</p>
 				<div
-					class="section-one__title3 absolute bottom-0 w-full  md:relative md:bottom-auto   md:max-w-none  leading-9 text-center md:text-right mb-16"
+					class="section-one__title3 absolute w-full md:relative md:max-w-none text-center md:text-right max-w-[251px] md:max-w-[auto] left-1/2 transform -translate-x-1/2 md:translate-x-[none] bottom-[18vw] md:bottom-auto md:left-auto md:mb-0 md:mt-[27px]"
 				>
 					<p class="h5 md:h4">Auto Updates - OTA</p>
-					<p class="body-text font-normal">An always up to date and secure system</p>
+					<p class="body-text font-normal mt-5 md:mt-0">An always up to date and secure system</p>
 				</div>
 			</div>
 		</div>
 		<div
-			class="section-one__product-image flex-auto w-full absolute h-full flex items-center top-0 left-0 md:relative md:top-auto md:left-auto md:h-auto -z-10"
+			class="section-one__product-image flex-auto w-full absolute h-full flex items-center top-0 left-0 md:relative md:top-auto md:left-auto md:h-auto -z-10 md:max-w-[806px]"
 		>
 			<img
 				src="/assets/hub.jpg"
 				srcset="/assets/hub.jpg"
-				class=" md:h-auto min-w-full md:min-w-0 md:ml-[10%] absolute md:relative bottom-8 md:bottom-auto right-[-33vw] md:right-auto object-contain max-w-[135%] md:max-w-auto"
+				class="w-full hidden md:block"
+				alt=""
+			/>
+      <img
+				src="/assets/hub-m.jpg"
+				srcset="/assets/hub-m.jpg"
+				class="w-full md:hidden"
 				alt=""
 			/>
 		</div>
@@ -602,20 +608,26 @@
 	class="section-three section-height relative bg-dark md:flex text-center md:text-left  md:items-center md:justify-evenly flex flex-col md:flex-row items-center justify-center"
 >
 	<div
-		class="max-w-screen-2xl mx-auto w-full section-height relative md:flex md:items-center"
+		class="max-w-screen-2xl mx-auto w-full section-height relative md:flex md:items-center overflow-hidden"
 	>
-  <div class="w-full md:h-full md:justify-end title-top-left ">
+  <div class="md:h-full md:justify-end title-top-left -mt-[10vh] md:mt-0">
 		<p
 			class="section-three__heading h4 md:h2 text-white"
 		>
 			Seamless communication <br /> with the Keus app
 		</p>
   </div>
-		<div class="section-three__product-image mt-[8vh] md:mr-24 xl:mr-48 flex-auto">
+		<div class="section-three__product-image max-w-[806px] w-full">
 			<img
 				src="/assets/hub-keus-app.png"
 				srcset={imgSrcSet('/assets/hub-keus-app.png')}
-				class=" w-full md:w-auto object-contain max-w-[254px] md:max-w-[346px] mx-auto"
+				class=" w-full md:w-auto object-contain max-w-[254px] md:max-w-[346px] mt-6 mx-auto pointer-events-none md:hidden"
+				alt=""
+			/>
+      <img
+				src="/assets/hub-keus-app.jpg"
+				srcset={imgSrcSet('/assets/hub-keus-app.jpg')}
+				class=" w-full object-contain max-w-[254px] md:max-w-[none] mx-auto pointer-events-none h-full hidden md:block"
 				alt=""
 			/>
 		</div>
@@ -626,22 +638,28 @@
 	class="section-four section-height relative md:flex text-center md:text-left  md:items-center md:justify-evenly flex flex-col md:flex-row items-center justify-center bg-pale-white"
 >
 	<div
-		class="max-w-screen-2xl w-full section-height relative mx-auto md:flex md:flex-row-reverse md:items-center"
+		class="max-w-screen-2xl w-full section-height relative mx-auto md:flex md:flex-row-reverse md:items-center overflow-hidden"
 	>
 		<div
-			class="section-four__product-image mt-[8vh]  md:mt-0 overflow-hidden md:absolute md:right-0"
+			class="section-four__product-image max-w-[806px] max-h-[576px] md:max-h-[none] h-full md:h-auto md:mt-0 overflow-hidden md:absolute md:right-0"
 		>
 			<img
+				src="/assets/hub-back.jpg"
+				srcset={imgSrcSet('/assets/hub-back.jpg')}
+				class=" w-full object-contain md:mx-auto hidden md:block"
+				alt=""
+			/>
+      <img
 				src="/assets/hub-back.png"
 				srcset={imgSrcSet('/assets/hub-back.png')}
-				class=" w-full object-contain md:max-w-lg xl:max-w-4xl md:mx-auto"
+				class=" w-full object-contain md:mx-auto md:hidden pointer-events-none h-full"
 				alt=""
 			/>
 		</div>
 		<p
 			class="section-four__heading h5 md:h4 mx-4 md:mx-0 md:text-right w-128 md:absolute md:right-2/4"
 		>
-			Connects Keus smart <br />home to the internet
+			Connects Keus smart home <br /> to the internet
 		</p>
 	</div>
 </div>
@@ -650,19 +668,19 @@
 	<div class="max-w-screen-2xl  relative mx-auto ">
 		<div class="md:flex md:items-center w-full section-height">
 			<div
-				class="section-five__heading title-top-left md:w-1/2 text-center md:text-left max-w-[296px] mx-auto w-[320px] md:max-w-[none] md:h-full"
+				class="section-five__heading title-top-left md:w-[51%] text-center md:text-left max-w-[296px] mx-auto w-[320px] md:max-w-[none] md:h-full"
 			>
-				<p class="h3 md:h2 relative">
-					Secure like <br /> Fort Knox
+				<p class="h3 md:h2 relative -mt-[60px] md:mt-0">
+					Secure like Fort <br/>Knox
 				</p>
 			</div>
 			<div
-				class="section-five__product-image w-full flex-auto overflow-hidden pt-12 md:w-3/5 md:max-w-[800px] "
+				class="section-five__product-image w-full flex-auto overflow-hidden pt-12 md:max-w-[806px] md:w-full"
 			>
-				<img src="/assets/hub-chip.png" srcset={imgSrcSet('/assets/hub-chip.png')} alt="" />
+				<img src="/assets/hub-chip.png" srcset={imgSrcSet('/assets/hub-chip.png')} alt="" class="pointer-events-none" />
 			</div>
 			<p
-				class="section-five__title2 h4 px-12 md:px-0 text-center md:text-right md:absolute md:left-0 md:top-1/2 md:max-w-[320px]"
+				class="section-five__title2 h4 px-12 md:px-0 text-center md:text-right md:absolute md:left-0 md:top-[70%] md:max-w-[455px]"
 			>
 				Proprietary security layers to further enchance layers of military grade encryption
 			</p>
@@ -700,8 +718,8 @@
 	<div
 		class="max-w-screen-2xl w-full section-height relative mx-auto md:flex "
 	>
-		<div class="title-top-left w-full flex flex-wrap content-between">
-			<p class="section-seven__heading h3 md:h2 text-center md:text-left w-full md:max-w-[427px]">
+		<div class="title-top-left md:pb-[215px] w-full h-full md:h-auto flex flex-wrap content-between">
+			<p class="section-seven__heading h3 md:h2 text-center md:text-left w-full max-w-[175px] mx-auto md:max-w-[427px]">
 				Small and Beautiful
 			</p>
 			<p
@@ -711,9 +729,15 @@
 			</p>
 		</div>
 		<img
+			src="/assets/hub-top.jpg"
+			srcset={imgSrcSet('/assets/hub-top.jpg')}
+			class="h-full w-full max-w-[806px] max-h-[785px] md:max-h-full object-contain md:mr-0 md:ml-auto section-seven__product-image absolute items-center top-0 left-0 md:relative md:top-auto md:left-auto -z-10 hidden md:flex"
+			alt=""
+		/>
+    <img
 			src="/assets/hub-top.png"
 			srcset={imgSrcSet('/assets/hub-top.png')}
-			class="h-full w-full max-w-[800px] max-h-[785px] md:max-h-full object-contain md:mr-0 md:ml-auto section-seven__product-image absolute flex items-center top-0 left-0 md:relative md:top-auto md:left-auto -z-10"
+			class="h-full w-full max-h-[511px] md:max-h-full object-contain md:mr-0 md:ml-auto section-seven__product-image absolute flex items-center bottom-[90px] left-0 md:relative md:top-auto md:left-auto -z-10 md:hidden"
 			alt=""
 		/>
 	</div>

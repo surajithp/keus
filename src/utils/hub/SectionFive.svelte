@@ -41,7 +41,7 @@
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							xPercent: 0,
+							xPercent: 30,
 							duration: 1
 						},
 						3
