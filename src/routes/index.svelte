@@ -515,7 +515,6 @@
 		return srcset;
 	};
 </script>
-
 <div class="h-screen overflow-hidden flex md:items-center justify-center hub-intro">
 	<div class="w-full h-full">
 		<img
@@ -529,12 +528,12 @@
 		class="hub-text absolute text-back max-w-[296px] md:max-w-full mx-auto mt-[17vh] md:mt-0 md:top-[34vh]"
 	>
 		<p
-			class="title-font text-42 md:text-72 leading-tight md:leading-120 text-center w-10/12 md:w-full mx-auto"
+			class="h2 md:h1 text-center w-10/12 md:w-full mx-auto"
 		>
 			Meet the sentinel
 		</p>
 		<p
-			class=" text-20 md:text-20 md:leading-7 leading-8 mt-4 text-center w-10/12 md:w-full mx-auto"
+			class="subheader mt-4 text-center w-10/12 md:w-full mx-auto"
 		>
 			A truly advanced gatekeeper for the smartest homes.
 		</p>
@@ -548,25 +547,25 @@
 				class="section-one__heading flex-auto text-back text-center md:text-left md:relative max-w-[296px] mx-auto md:ml-0 md:max-w-[427px]"
 			>
 				<p
-					class="title-font text-[5.2vh] md:text-[4.2vh] md:leading-snug leading-tight pt-12 mx-auto"
+					class="h3 md:h2 pt-12 mx-auto"
 				>
 					A beating heart in Keus homes
 				</p>
-				<p class="text-[2.6vh] md:leading-8 mt-6 mx-auto max-w-[272px] md:max-w-[none]  ">
+				<p class="body-text-lg md:subheader mt-6 mx-auto max-w-[272px] md:max-w-[none]  ">
 					To deliver a superlative smart home experience.
 				</p>
 			</div>
 			<div class="text-center">
 				<p
-					class="section-one__title2 absolute bottom-0  w-full md:relative md:bottom-auto title-font md:text-[2.6vh] text-[4.2vh] leading-9  md:max-w-none text-center md:text-right mb-16"
+					class="section-one__title2 h5 md:h4 absolute bottom-0  w-full md:relative md:bottom-auto md:max-w-none text-center md:text-right mb-16"
 				>
 					Stores and backs up <br /> everything that matters
 				</p>
 				<div
 					class="section-one__title3 absolute bottom-0 w-full  md:relative md:bottom-auto   md:max-w-none  leading-9 text-center md:text-right mb-16"
 				>
-					<p class="title-font md:text-[2.6vh] text-[4.2vh] leading-9">Auto Updates - OTA</p>
-					<p class="md:text-[1.6vh] text-[2.6vh] leading-6 font-normal">
+					<p class="h5 md:h4">Auto Updates - OTA</p>
+					<p class="body-text font-normal">
 						An always up to date and secure system
 					</p>
 				</div>
@@ -587,7 +586,7 @@
 
 <section class="scene section section-two h-screen relative text-white">
 	<div class="sentinel-never-sleeps-text absolute z-10 w-full text-center md:inset-y-1/3">
-		<p class="title-font text-[5.2vh] md:text-[4.2vh] leading-tight">
+		<p class="h3 md:h2 leading-tight">
 			The sentinel <span class="block md:inline">never sleeps</span>
 		</p>
 	</div>
@@ -605,7 +604,7 @@
 >
 	<div class="max-w-screen-xl md:mx-24 w-full h-screen relative mx-auto md:flex md:items-center">
 		<p
-			class="section-three__heading title-font text-white text-[4.2vh] leading-tight w-full md:flex md:justify-end md:mr-12 flex-auto"
+			class="section-three__heading h4 md:h2 w-full md:flex md:justify-end md:mr-12 flex-auto text-white"
 		>
 			Seamless communication <br /> with the Keus app
 		</p>
@@ -637,7 +636,7 @@
 			/>
 		</div>
 		<p
-			class="section-four__heading title-font text-[4.2vh] mx-4 md:mx-0 leading-tight md:text-right w-128 md:absolute md:right-2/4"
+			class="section-four__heading h5 md:h4 mx-4 md:mx-0 md:text-right w-128 md:absolute md:right-2/4"
 		>
 			Connects Keus smart <br />home to the internet
 		</p>
@@ -651,7 +650,7 @@
 				class="section-five__heading text-center md:text-left  max-w-[296px] mx-auto w-[320px] md:max-w-[427px] md:-mt-40"
 			>
 				<p
-					class="title-font text-[6vh] md:text-[4.2vh] md:leading-snug leading-tight relative top-12 md:top-auto"
+					class="h3 md:h2 relative top-12 md:top-auto"
 				>
 					Secure like <br /> Fort Knox
 				</p>
@@ -662,7 +661,7 @@
 				<img src="/assets/hub-chip.png" srcset={imgSrcSet('/assets/hub-chip.png')} alt="" />
 			</div>
 			<p
-				class="section-five__title2 title-font text-[4.2vh] md:text-[2.6vh] leading-9 px-12 md:px-0 text-center md:text-right md:absolute md:left-0 md:top-1/2 md:max-w-[320px]"
+				class="section-five__title2 h4 px-12 md:px-0 text-center md:text-right md:absolute md:left-0 md:top-1/2 md:max-w-[320px]"
 			>
 				Proprietary security layers to further enchance layers of military grade encryption
 			</p>
@@ -676,11 +675,11 @@
 		class="product-info__description  text-center md:text-left w-full md:w-auto absolute top-[10vh] md:top-[20vh] md:left-[20vh]"
 		id="product-info__description1"
 	>
-		<h2 class="text-4xl md:text-42 title-font">Mini but max</h2>
-		<p class="mt-4 md:text-24">Superfast and seriously powerful.</p>
+		<h2 class="h3 md:h2">Mini but max</h2>
+		<p class="mt-4 subheader">Superfast and seriously powerful.</p>
 	</div>
 	<div
-		class="product-info__description absolute inset-y-3/4 md:inset-y-1/2 md:mt-16 md:left-[40vh] w-full md:w-auto text-center md:text-right text-[4.2vh] title-font mt-8"
+		class="product-info__description absolute inset-y-3/4 md:inset-y-1/2 md:mt-16 md:left-[40vh] w-full md:w-auto text-center md:text-right h5 md:h4 mt-8"
 		id="product-info__description2"
 	>
 		<h2>Multi core performace. <br />Powerful and fast.</h2>
@@ -689,9 +688,9 @@
 		class="product-info__description  text-center md:text-right w-full md:w-auto absolute bottom-[10vh] md:inset-y-1/2 md:left-[40vh] md:opacity-0"
 		id="product-info__description3"
 	>
-		<h2 class="md:text-[2.6vh] text-[4.2vh] title-font">100+ devices per hub - easy!</h2>
-		<p class="md:text-[1.6vh] text-[2.6vh] mt-4 md:mt-0">
-			Large Homes or Larger, We’ve got your covered
+		<h2 class="h5 md:h4">100+ devices per hub - easy!</h2>
+		<p class="body-text mt-4 md:mt-0">
+			Large Homes or Larger, We've got your covered
 		</p>
 	</div>
 </section>
@@ -700,12 +699,12 @@
 	<div class="max-w-screen-xl md:mx-24 w-full h-screen relative mx-auto md:flex md:items-center">
 		<div class="w-full py-12 mf:py-0 h-full flex flex-wrap content-between md:h-[500px]">
 			<p
-				class="section-seven__heading text-center md:text-left w-full text-center md:text-left md:max-w-[427px] title-font text-[5.2vh] md:text-[4.2vh] md:leading-snug leading-tight"
+				class="section-seven__heading h3 md:h2 text-center md:text-left w-full md:max-w-[427px]"
 			>
 				Small and Beautiful
 			</p>
 			<p
-				class="section-seven__title2 title-font md:text-[2.6vh] text-[4.2vh]  leading-9 max-w-[309px] mx-auto md:max-w-none text-center md:text-right w-full"
+				class="section-seven__title2 h5 md:h4 max-w-[309px] mx-auto md:max-w-none text-center md:text-right w-full"
 			>
 				Mili-second executions <br />from anywhere in the world
 			</p>
@@ -724,7 +723,7 @@
 >
 	<div class="max-w-screen-xl md:mx-24 w-full h-screen relative mx-auto md:flex md:items-center">
 		<p
-			class="section-eight__heading text-[4.2vh] md:text-[2.6vh] leading-8 title-font absolute w-full text-center md:text-right left-1/2 md:left-[20%] md:top-1/2 md:bottom-auto transform -translate-x-1/2 md:-translate-y-full max-w-[230px] ml-0 md:mx-auto top-[15vh]"
+			class="section-eight__heading h5 md:h4 absolute w-full text-center md:text-right left-1/2 md:left-[20%] md:top-1/2 md:bottom-auto transform -translate-x-1/2 md:-translate-y-full max-w-[230px] ml-0 md:mx-auto top-[15vh]"
 		>
 			Wall or tabletop You decide
 		</p>

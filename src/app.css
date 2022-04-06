@@ -1,6 +1,47 @@
-@import "css/common/typography.css";
 @import "css/hub/intro.css";
+@import "css/common/typography.pcss";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  @variants responsive {
+    .h1 {
+      @apply text-42 leading-54;
+    }
+    .h2 {
+      @apply text-42 leading-54;
+    }
+    .h3 {
+      @apply text-36 leading-38;
+    }
+    .h4 {
+      @apply text-28 leading-36;
+    }
+    .h5 {
+      @apply text-24 leading-34;
+    }
+    .subheader {
+      @apply text-20 leading-32;
+    }
+    .body-text-s {
+      @apply text-14 leading-24;
+    }
+    .body-text {
+      @apply text-16 leading-24;
+    }
+    .body-text-lg {
+      @apply text-18 leading-28;
+    } 
+    .body-text-xl {
+      @apply text-20 leading-28;
+    }
+    .landing-sub-text {
+      @apply text-24 leading-32;
+    }
+    .h1,.h2,.h3,.h4,.h5 {
+      font-family: 'Playfair Display', serif;
+    }
+  }
+}
