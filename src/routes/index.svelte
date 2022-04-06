@@ -15,9 +15,15 @@
 
 	let canvas;
 	let innerHeight;
+	const appHeight = () => {
+		const doc = document.documentElement;
+		doc.style.setProperty('--app-height', `${window.innerHeight}px`);
+	};
 
 	onMount(() => {
-		innerHeight = window.screen.height;
+		window.addEventListener('resize', appHeight);
+		appHeight();
+		// innerHeight = window.innerHeight;
 		gsap.registerPlugin(ScrollTrigger);
 
 		// Setup
@@ -493,12 +499,11 @@
 
 		sectionSevenAnimation();
 		sectionEightAnimation();
-
-		ScrollTrigger.refresh();
-
 		window.addEventListener('resize', () => {
-			innerHeight = window.screen.height;
+			innerHeight = window.innerHeight;
+			ScrollTrigger.refresh();
 		});
+		ScrollTrigger.refresh();
 	});
 
 	const imgSrcSet = (imagePath) => {
@@ -515,7 +520,8 @@
 		return srcset;
 	};
 </script>
-<div class="h-screen overflow-hidden flex md:items-center justify-center hub-intro">
+
+<div class="section-height overflow-hidden flex md:items-center justify-center hub-intro">
 	<div class="w-full h-full">
 		<img
 			src="/assets/hub-intro.jpg"
@@ -527,30 +533,20 @@
 	<div
 		class="hub-text absolute text-back max-w-[296px] md:max-w-full mx-auto mt-[17vh] md:mt-0 md:top-[34vh]"
 	>
-		<p
-			class="h2 md:h1 text-center w-10/12 md:w-full mx-auto"
-		>
-			Meet the sentinel
-		</p>
-		<p
-			class="subheader mt-4 text-center w-10/12 md:w-full mx-auto"
-		>
+		<p class="h2 md:h1 text-center w-10/12 md:w-full mx-auto">Meet the sentinel</p>
+		<p class="subheader mt-4 text-center w-10/12 md:w-full mx-auto">
 			A truly advanced gatekeeper for the smartest homes.
 		</p>
 	</div>
 </div>
 
-<div class=" section-one overflow-hidden" style="background-color: #F9F8F6">
-	<div class="max-w-screen-xl w-full h-screen relative mx-auto md:flex md:items-center">
+<div class=" section-one overflow-hidden section-height" style="background-color: #F9F8F6; ">
+	<div class="max-w-screen-xl w-full h-full relative mx-auto md:flex md:items-center">
 		<div class="flex-auto md:w-3/5 flex flex-col content-between h-full md:h-[640px] md:ml-[10%]">
 			<div
 				class="section-one__heading flex-auto text-back text-center md:text-left md:relative max-w-[296px] mx-auto md:ml-0 md:max-w-[427px]"
 			>
-				<p
-					class="h3 md:h2 pt-12 mx-auto"
-				>
-					A beating heart in Keus homes
-				</p>
+				<p class="h3 md:h2 pt-12 mx-auto">A beating heart in Keus homes</p>
 				<p class="body-text-lg md:subheader mt-6 mx-auto max-w-[272px] md:max-w-[none]  ">
 					To deliver a superlative smart home experience.
 				</p>
@@ -565,9 +561,7 @@
 					class="section-one__title3 absolute bottom-0 w-full  md:relative md:bottom-auto   md:max-w-none  leading-9 text-center md:text-right mb-16"
 				>
 					<p class="h5 md:h4">Auto Updates - OTA</p>
-					<p class="body-text font-normal">
-						An always up to date and secure system
-					</p>
+					<p class="body-text font-normal">An always up to date and secure system</p>
 				</div>
 			</div>
 		</div>
@@ -584,7 +578,7 @@
 	</div>
 </div>
 
-<section class="scene section section-two h-screen relative text-white">
+<section class="scene section section-two section-height relative text-white">
 	<div class="sentinel-never-sleeps-text absolute z-10 w-full text-center md:inset-y-1/3">
 		<p class="h3 md:h2 leading-tight">
 			The sentinel <span class="block md:inline">never sleeps</span>
@@ -600,9 +594,11 @@
 </section>
 
 <div
-	class="section-three h-screen relative bg-dark md:flex text-center md:text-left  md:items-center md:justify-evenly flex flex-col md:flex-row items-center justify-center"
+	class="section-three section-height relative bg-dark md:flex text-center md:text-left  md:items-center md:justify-evenly flex flex-col md:flex-row items-center justify-center"
 >
-	<div class="max-w-screen-xl md:mx-24 w-full h-screen relative mx-auto md:flex md:items-center">
+	<div
+		class="max-w-screen-xl md:mx-24 w-full section-height relative mx-auto md:flex md:items-center"
+	>
 		<p
 			class="section-three__heading h4 md:h2 w-full md:flex md:justify-end md:mr-12 flex-auto text-white"
 		>
@@ -620,10 +616,10 @@
 </div>
 
 <div
-	class="section-four h-screen relative md:flex text-center md:text-left  md:items-center md:justify-evenly flex flex-col md:flex-row items-center justify-center bg-pale-white"
+	class="section-four section-height relative md:flex text-center md:text-left  md:items-center md:justify-evenly flex flex-col md:flex-row items-center justify-center bg-pale-white"
 >
 	<div
-		class="max-w-screen-xl md:mx-24 w-full h-screen relative mx-auto md:flex md:flex-row-reverse md:items-center"
+		class="max-w-screen-xl md:mx-24 w-full section-height relative mx-auto md:flex md:flex-row-reverse md:items-center"
 	>
 		<div
 			class="section-four__product-image mt-[8vh]  md:mt-0 overflow-hidden md:absolute md:right-0"
@@ -643,15 +639,13 @@
 	</div>
 </div>
 
-<div class="h-screen section-five relative bg-dark overflow-x-hidden text-white ">
+<div class="section-height section-five relative bg-dark overflow-x-hidden text-white ">
 	<div class="max-w-screen-xl  relative mx-auto ">
-		<div class="md:px-24 md:flex md:items-center w-full h-screen">
+		<div class="md:px-24 md:flex md:items-center w-full section-height">
 			<div
 				class="section-five__heading text-center md:text-left  max-w-[296px] mx-auto w-[320px] md:max-w-[427px] md:-mt-40"
 			>
-				<p
-					class="h3 md:h2 relative top-12 md:top-auto"
-				>
+				<p class="h3 md:h2 relative top-12 md:top-auto">
 					Secure like <br /> Fort Knox
 				</p>
 			</div>
@@ -669,7 +663,9 @@
 	</div>
 </div>
 
-<section class="h-screen relative section-six product-ezgif overflow-hidden bg-dark text-white">
+<section
+	class="section-height relative section-six product-ezgif overflow-hidden bg-dark text-white"
+>
 	<canvas id="product-ezgif" />
 	<div
 		class="product-info__description  text-center md:text-left w-full md:w-auto absolute top-[10vh] md:top-[20vh] md:left-[20vh]"
@@ -689,18 +685,16 @@
 		id="product-info__description3"
 	>
 		<h2 class="h5 md:h4">100+ devices per hub - easy!</h2>
-		<p class="body-text mt-4 md:mt-0">
-			Large Homes or Larger, We've got your covered
-		</p>
+		<p class="body-text mt-4 md:mt-0">Large Homes or Larger, We've got your covered</p>
 	</div>
 </section>
 
-<div class="section-seven h-screen w-full relative overflow-hidden md:flex md:items-center">
-	<div class="max-w-screen-xl md:mx-24 w-full h-screen relative mx-auto md:flex md:items-center">
+<div class="section-seven section-height w-full relative overflow-hidden md:flex md:items-center">
+	<div
+		class="max-w-screen-xl md:mx-24 w-full section-height relative mx-auto md:flex md:items-center"
+	>
 		<div class="w-full py-12 mf:py-0 h-full flex flex-wrap content-between md:h-[500px]">
-			<p
-				class="section-seven__heading h3 md:h2 text-center md:text-left w-full md:max-w-[427px]"
-			>
+			<p class="section-seven__heading h3 md:h2 text-center md:text-left w-full md:max-w-[427px]">
 				Small and Beautiful
 			</p>
 			<p
@@ -719,9 +713,11 @@
 </div>
 
 <div
-	class="section-eight h-screen w-full relative bg-[#D0CDC8] overflow-hidden bg-gradient-to-r from-[#D0CDC8] to-[#eae7e4]"
+	class="section-eight section-height w-full relative bg-[#D0CDC8] overflow-hidden bg-gradient-to-r from-[#D0CDC8] to-[#eae7e4]"
 >
-	<div class="max-w-screen-xl md:mx-24 w-full h-screen relative mx-auto md:flex md:items-center">
+	<div
+		class="max-w-screen-xl md:mx-24 w-full section-height relative mx-auto md:flex md:items-center"
+	>
 		<p
 			class="section-eight__heading h5 md:h4 absolute w-full text-center md:text-right left-1/2 md:left-[20%] md:top-1/2 md:bottom-auto transform -translate-x-1/2 md:-translate-y-full max-w-[230px] ml-0 md:mx-auto top-[15vh]"
 		>
@@ -741,3 +737,12 @@
 		/>
 	</div>
 </div>
+
+<style>
+	:root {
+		--app-height: 100%;
+	}
+	.section-height {
+		height: var(--app-height);
+	}
+</style>
