@@ -27,7 +27,7 @@
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							yPercent: 5
+							yPercent: -5
 						},
 						1
 					)

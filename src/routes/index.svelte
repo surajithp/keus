@@ -369,7 +369,7 @@
 					hubCanvas.height = innerHeight;
 					let currentFrame;
 
-					const frameCount = 243;
+					const frameCount = 230;
 					currentFrame = (index) =>
 						`/assets/hub_mobile/hub_${(index + 1).toString().padStart(3, '0')}.jpg`;
 
@@ -414,23 +414,9 @@
 							'+=2'
 						)
 						.to(products, {
-							frame: 44,
-							snap: 'frame',
-							duration: 4,
-							onUpdate: render
-						})
-						.to('#product-info__description3', {}, '+=2')
-						.to(products, {
-							frame: 86,
-							snap: 'frame',
-							duration: 4,
-							onUpdate: render
-						})
-						.to('#product-info__description2', {}, '+=2')
-						.to(products, {
 							frame: 134,
 							snap: 'frame',
-							duration: 4,
+							duration: 12,
 							onUpdate: render
 						})
 						.fromTo(
@@ -456,7 +442,7 @@
 						.to(products, {
 							frame: frameCount - 1,
 							snap: 'frame',
-							duration: 8,
+							duration: 10,
 							onUpdate: render
 						})
 						.fromTo(
@@ -464,7 +450,7 @@
 							{
 								autoAlpha: 0,
 								ease: 'power4.easeOut',
-								y: 100
+								y: 10
 							},
 							{
 								autoAlpha: 1,
@@ -472,7 +458,7 @@
 								y: 0
 							}
 						)
-						.to('#product-info__description3', {}, '+=4');
+						.to('#product-info__description3', {}, '+=2');
 
 					images[0].onload = render;
 
@@ -546,13 +532,15 @@
 </div>
 
 <div class=" section-one overflow-hidden section-height" style="background-color: #F9F8F6; ">
-	<div class="max-w-screen-2xl w-full h-full relative mx-auto md:flex md:items-center md:justify-center">
+	<div
+		class="max-w-screen-2xl w-full h-full relative mx-auto md:flex md:items-center md:justify-center"
+	>
 		<div class="h-full title-top-left">
 			<div
 				class="section-one__heading flex-auto text-back text-center md:text-left md:relative mx-auto md:ml-0 max-w-[289px] md:max-w-[auto]"
 			>
-				<p class="h3 md:h2 mx-auto">A beating heart <br/> in Keus homes</p>
-				<p class="body-text-lg md:subheader mt-4 md:mt-6 mx-auto ">
+				<p class="h3 md:h2 mx-auto">A beating heart <br /> in Keus homes</p>
+				<p class="landing-sub-text md:subheader mt-4 md:mt-6 mx-auto ">
 					To deliver a superlative smart home experience.
 				</p>
 			</div>
@@ -573,18 +561,8 @@
 		<div
 			class="section-one__product-image flex-auto w-full absolute h-full flex items-center top-0 left-0 md:relative md:top-auto md:left-auto md:h-auto -z-10 md:max-w-[806px]"
 		>
-			<img
-				src="/assets/hub.jpg"
-				srcset="/assets/hub.jpg"
-				class="w-full hidden md:block"
-				alt=""
-			/>
-      <img
-				src="/assets/hub-m.jpg"
-				srcset="/assets/hub-m.jpg"
-				class="w-full md:hidden"
-				alt=""
-			/>
+			<img src="/assets/hub.jpg" srcset="/assets/hub.jpg" class="w-full hidden md:block" alt="" />
+			<img src="/assets/hub-m.jpg" srcset="/assets/hub-m.jpg" class="w-full md:hidden" alt="" />
 		</div>
 	</div>
 </div>
@@ -610,13 +588,11 @@
 	<div
 		class="max-w-screen-2xl mx-auto w-full section-height relative md:flex md:items-center overflow-hidden"
 	>
-  <div class="md:h-full md:justify-end title-top-left -mt-[10vh] md:mt-0">
-		<p
-			class="section-three__heading h4 md:h2 text-white"
-		>
-			Seamless communication <br /> with the Keus app
-		</p>
-  </div>
+		<div class="md:h-full md:justify-end title-top-left -mt-[10vh] md:mt-0">
+			<p class="section-three__heading h4 md:h2 text-white">
+				Seamless communication <br /> with the Keus app
+			</p>
+		</div>
 		<div class="section-three__product-image max-w-[806px] w-full">
 			<img
 				src="/assets/hub-keus-app.png"
@@ -624,7 +600,7 @@
 				class=" w-full md:w-auto object-contain max-w-[254px] md:max-w-[346px] mt-6 mx-auto pointer-events-none md:hidden"
 				alt=""
 			/>
-      <img
+			<img
 				src="/assets/hub-keus-app.jpg"
 				srcset={imgSrcSet('/assets/hub-keus-app.jpg')}
 				class=" w-full object-contain max-w-[254px] md:max-w-[none] mx-auto pointer-events-none h-full hidden md:block"
@@ -649,7 +625,7 @@
 				class=" w-full object-contain md:mx-auto hidden md:block"
 				alt=""
 			/>
-      <img
+			<img
 				src="/assets/hub-back.png"
 				srcset={imgSrcSet('/assets/hub-back.png')}
 				class=" w-full object-contain md:mx-auto md:hidden pointer-events-none h-full"
@@ -671,13 +647,18 @@
 				class="section-five__heading title-top-left md:w-[51%] text-center md:text-left max-w-[296px] mx-auto w-[320px] md:max-w-[none] md:h-full"
 			>
 				<p class="h3 md:h2 relative -mt-[60px] md:mt-0">
-					Secure like Fort <br/>Knox
+					Secure like Fort <br />Knox
 				</p>
 			</div>
 			<div
 				class="section-five__product-image w-full flex-auto overflow-hidden pt-12 md:max-w-[806px] md:w-full"
 			>
-				<img src="/assets/hub-chip.png" srcset={imgSrcSet('/assets/hub-chip.png')} alt="" class="pointer-events-none" />
+				<img
+					src="/assets/hub-chip.png"
+					srcset={imgSrcSet('/assets/hub-chip.png')}
+					alt=""
+					class="pointer-events-none"
+				/>
 			</div>
 			<p
 				class="section-five__title2 h4 px-12 md:px-0 text-center md:text-right md:absolute md:left-0 md:top-[70%] md:max-w-[455px]"
@@ -715,11 +696,13 @@
 </section>
 
 <div class="section-seven section-height w-full relative overflow-hidden md:flex md:items-center">
-	<div
-		class="max-w-screen-2xl w-full section-height relative mx-auto md:flex "
-	>
-		<div class="title-top-left md:pb-[215px] w-full h-full md:h-auto flex flex-wrap content-between">
-			<p class="section-seven__heading h3 md:h2 text-center md:text-left w-full max-w-[175px] mx-auto md:max-w-[427px]">
+	<div class="max-w-screen-2xl w-full section-height relative mx-auto md:flex ">
+		<div
+			class="title-top-left md:pb-[215px] w-full h-full md:h-auto flex flex-wrap content-between"
+		>
+			<p
+				class="section-seven__heading h3 md:h2 text-center md:text-left w-full max-w-[175px] mx-auto md:max-w-[427px]"
+			>
 				Small and Beautiful
 			</p>
 			<p
@@ -734,7 +717,7 @@
 			class="h-full w-full max-w-[806px] max-h-[785px] md:max-h-full object-contain md:mr-0 md:ml-auto section-seven__product-image absolute items-center top-0 left-0 md:relative md:top-auto md:left-auto -z-10 hidden md:flex"
 			alt=""
 		/>
-    <img
+		<img
 			src="/assets/hub-top.png"
 			srcset={imgSrcSet('/assets/hub-top.png')}
 			class="h-full w-full max-h-[511px] md:max-h-full object-contain md:mr-0 md:ml-auto section-seven__product-image absolute flex items-center bottom-[90px] left-0 md:relative md:top-auto md:left-auto -z-10 md:hidden"
