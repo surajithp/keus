@@ -57,12 +57,12 @@
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							yPercent: 25
+							yPercent: -100
 						},
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							yPercent: 20
+							yPercent: -110
 						},
 						1
 					)
@@ -80,12 +80,12 @@
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							yPercent: 5
+							yPercent: -90
 						},
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							yPercent: -160,
+							yPercent: -100,
 							duration: 1
 						}
 					)
