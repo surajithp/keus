@@ -1,6 +1,9 @@
 module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
+    maxWidth: {
+      'screen-2xl': '1440px'
+    },
     opacity: {
       0: "0",
       25: ".25",
@@ -26,7 +29,9 @@ module.exports = {
         'keus-green': '#8FBEC5',
       },
       fontSize: {
+        '14': '14px',
         '16': '16px',
+        '18': '18px',
         '20': '20px',
         '24': '24px',
         '26': '26px',
@@ -34,9 +39,21 @@ module.exports = {
         '32': '32px',
         '36': '36px',
         '42': '42px',
+        '62': '62px',
         '72': '72px',
         '75': '75px',
       },
+      lineHeight: {
+        '24': '24px',
+        '28': '28px',
+        '32': '32px',
+        '34': '34px',
+        '36': '36px',
+        '38': '38px',
+        '48': '48px',
+        '54': '54px',
+        '82': '82px',
+      }
     }
   },
   plugins: []

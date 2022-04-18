@@ -4,32 +4,32 @@
 
 	export const sectionFourAnimation = () => {
 		// Section four
-		let sectionFour = gsap.timeline({
-			duration: 2,
-			scrollTrigger: {
-				trigger: '.section-four',
-				start: 'top top',
-				pin: true,
-				scrub: 1
-			}
-		});
 
 		ScrollTrigger.matchMedia({
 			// desktop text timeline
 			'(min-width: 768px)': function () {
+				let sectionFour = gsap.timeline({
+					duration: 3,
+					scrollTrigger: {
+						trigger: '.section-four',
+						start: 'top top',
+						pin: true,
+						scrub: 1
+					}
+				});
 				sectionFour
 					.fromTo(
 						'.section-four__heading',
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							xPercent: 0,
+							xPercent: -75,
 							yPercent: 100
 						},
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							xPercent: 10,
+							xPercent: -50,
 							duration: 1
 						},
 						0
@@ -38,17 +38,26 @@
 			},
 			// mobile text timeline
 			'(max-width: 767px)': function () {
+				let sectionFour = gsap.timeline({
+					duration: 1.5,
+					scrollTrigger: {
+						trigger: '.section-four',
+						start: 'top top',
+						pin: true,
+						scrub: 1
+					}
+				});
 				sectionFour
 					.fromTo(
 						'.section-four__product-image',
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							yPercent: 0
+							yPercent: 10
 						},
 						{
 							ease: 'power4.easeOut',
-							yPercent: -20,
+							yPercent: 0,
 							duration: 1
 						},
 						1
@@ -58,12 +67,12 @@
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							yPercent: 25
+							yPercent: 15
 						},
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							yPercent: -25
+							yPercent: -100
 						},
 						1
 					)

@@ -6,46 +6,46 @@
 
 	export const sectionOneAnimation = () => {
 		// Section one
-		let sectionOne = gsap.timeline({
-			scrollTrigger: {
-				trigger: '.section-one',
-				start: 'top top',
-				end: '3000px',
-				pin: true,
-				scrub: 0.5
-			}
-		});
 
 		ScrollTrigger.matchMedia({
 			// desktop text timeline
 			'(min-width: 768px)': function () {
+				let sectionOne = gsap.timeline({
+					scrollTrigger: {
+						trigger: '.section-one',
+						start: 'top top',
+						end: '3000px',
+						pin: true,
+						scrub: 0.5
+					}
+				});
 				sectionOne
 					.fromTo(
 						'.section-one__heading',
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							yPercent: 25
+							yPercent: 0
 						},
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
 							duration: 2,
-							yPercent: 20
+							yPercent: -10
 						},
-						'+=2'
+						'+=1'
 					)
 					.fromTo(
 						'.section-one__title2',
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							xPercent: 20
+							xPercent: -10
 						},
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							xPercent: 30,
+							xPercent: 0,
 							duration: 2
 						},
 						'+=1'
@@ -55,30 +55,39 @@
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							xPercent: 0,
+							xPercent: -10,
 							duration: 2
 						},
-						'+=2'
+						'+=1'
 					)
 					.fromTo(
 						'.section-one__title3',
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							xPercent: 20
+							xPercent: -10
 						},
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							xPercent: 30,
+							xPercent: 0,
 							duration: 2
 						},
 						'+=1'
 					)
-					.to('.section-one__title3', {}, '+=2');
+					.to('.section-one__title3', {}, '+=1');
 			},
 			// mobile text timeline
 			'(max-width: 767px)': function () {
+				let sectionOne = gsap.timeline({
+					scrollTrigger: {
+						trigger: '.section-one',
+						start: 'top top',
+						end: '1300px',
+						pin: true,
+						scrub: 0.5
+					}
+				});
 				sectionOne
 
 					.fromTo(
@@ -86,12 +95,12 @@
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							yPercent: 25
+							yPercent: 0
 						},
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							yPercent: 20
+							yPercent: -10
 						},
 						1
 					)
@@ -99,7 +108,7 @@
 						'.section-one__product-image',
 						{
 							ease: 'power4.easeOut',
-							yPercent: -18,
+							yPercent: -10,
 							duration: 1
 						},
 						1
@@ -141,7 +150,8 @@
 							// xPercent: 40,
 							duration: 1
 						}
-					);
+					)
+					.to('.section-one__title2', {}, '+=1');
 			},
 			all: function () {}
 		});

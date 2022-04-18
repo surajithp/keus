@@ -4,31 +4,31 @@
 
 	export const sectionThreeAnimation = () => {
 		// Section three
-		let sectionThree = gsap.timeline({
-			duration: 3,
-			scrollTrigger: {
-				trigger: '.section-three',
-				start: 'top top',
-				pin: true,
-				scrub: 1
-			}
-		});
 
 		ScrollTrigger.matchMedia({
 			// desktop text timeline
 			'(min-width: 768px)': function () {
+				let sectionThree = gsap.timeline({
+					duration: 3,
+					scrollTrigger: {
+						trigger: '.section-three',
+						start: 'top top',
+						pin: true,
+						scrub: 1
+					}
+				});
 				sectionThree
 					.fromTo(
 						'.section-three__heading',
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							xPercent: 0
+							xPercent: -10
 						},
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							xPercent: 20,
+							xPercent: 0,
 							duration: 1
 						},
 						0
@@ -37,6 +37,15 @@
 			},
 			// mobile text timeline
 			'(max-width: 767px)': function () {
+				let sectionThree = gsap.timeline({
+					duration: 2,
+					scrollTrigger: {
+						trigger: '.section-three',
+						start: 'top top',
+						pin: true,
+						scrub: 1
+					}
+				});
 				sectionThree
 					.fromTo(
 						'.section-three__heading',

@@ -22,12 +22,12 @@
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							yPercent: 25
+							yPercent: 0
 						},
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							yPercent: 20
+							yPercent: -5
 						},
 						1
 					)
@@ -36,12 +36,12 @@
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							xPercent: 0
+							xPercent: -10
 						},
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							xPercent: 10,
+							xPercent: 30,
 							duration: 1
 						},
 						3
@@ -70,7 +70,7 @@
 						'.section-five__product-image',
 						{
 							ease: 'power4.easeOut',
-							yPercent: -25,
+							yPercent: -40,
 							duration: 1
 						},
 						1
@@ -80,12 +80,12 @@
 						{
 							autoAlpha: 0,
 							ease: 'power4.easeOut',
-							yPercent: 25
+							yPercent: -80
 						},
 						{
 							autoAlpha: 1,
 							ease: 'power4.easeOut',
-							yPercent: -50,
+							yPercent: -100,
 							duration: 1
 						}
 					)
