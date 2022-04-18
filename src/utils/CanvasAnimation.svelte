@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
-	// import { gsap } from 'gsap';
-	// import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
 	export let frameCount, assetUrl, parentElement;
 	let canvas, innerHeight;
 
